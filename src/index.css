@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply antialiased transition-colors duration-300;
+  }
+
+  .dark {
+    color-scheme: dark;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply backdrop-blur-md bg-white/10 dark:bg-slate-900/40 border border-white/20 dark:border-white/10;
+  }
+
+  .glass-card {
+    @apply glass shadow-xl rounded-2xl p-6 transition-all duration-300 hover:shadow-2xl hover:scale-[1.02];
+  }
+
+  .section-padding {
+    @apply py-20 px-6 lg:px-24;
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-400 to-creative;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary-500/20 rounded-full hover:bg-primary-500/40 transition-colors;
+}
+
+/* Loader Styles */
+.loader-container {
+  @apply fixed inset-0 z-50 flex items-center justify-center bg-white dark:bg-dark-bg transition-opacity duration-1000;
+}
