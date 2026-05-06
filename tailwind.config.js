@@ -27,9 +27,9 @@ export default {
           border: '#334155',
           text: '#f8fafc',
         },
+        creative: '#a855f7',
         accent: {
           glow: '#38bdf8',
-          creative: '#a855f7',
         }
       },
       backgroundImage: {
