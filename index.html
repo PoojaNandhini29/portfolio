@@ -405,6 +405,13 @@
         flex: 0 0 auto;
       }
 
+      .stack-icon img {
+        width: 18px;
+        height: 18px;
+        display: block;
+        object-fit: contain;
+      }
+
       .stack-item span {
         font-size: 14px;
         color: rgba(240, 240, 240, 0.86);
@@ -843,21 +850,15 @@
       <section class="section" id="about">
         <div class="container reveal">
           <h2 class="section-title">About</h2>
-          <p class="section-sub">
-            A quick snapshot of how I work: calm pace, tight feedback loops, and a strong preference for boring,
-            reliable decisions.
-          </p>
 
           <div class="grid cols-2">
             <div class="panel padded">
               <p style="margin: 0; color: rgba(240, 240, 240, 0.78); font-size: 16px">
-                I'm a full-stack developer who also designs the UI, so I don't throw work over the wall.
-                I like projects where the details matter — layout rhythm, copy that reads like a person,
-                and endpoints that don't surprise you. I build quickly, but I don't ship messy: I keep the
-                structure clean so it stays easy to change. Most of my work is product-focused: dashboards,
-                small SaaS tools, and internal apps that need to feel obvious.
+                Im a full-stack developer with a strong eye for UI, which means I care as much about how a product feels
+                as how it works. I build clean, scalable applications — from dashboards to SaaS and internal tools — with
+                a focus on clarity, usability, and maintainable code. I work fast, stay detail-oriented, and use AI to
+                improve workflow and efficiency while keeping the development and decision-making entirely hands-on.
               </p>
-              <p class="note">I use AI as a co-pilot, not a crutch.</p>
             </div>
 
             <div class="panel padded">
@@ -867,61 +868,27 @@
               <ul class="list" aria-label="Current tech stack">
                 <li class="stack-item">
                   <span class="stack-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none">
-                      <path
-                        d="M7 7h10v10H7z"
-                        stroke="currentColor"
-                        stroke-width="1.6"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
+                    <img src="https://cdn.simpleicons.org/react" alt="" loading="lazy" decoding="async" />
                   </span>
                   <span>React</span>
                 </li>
                 <li class="stack-item">
                   <span class="stack-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none">
-                      <path
-                        d="M12 3l8 5v8l-8 5-8-5V8l8-5Z"
-                        stroke="currentColor"
-                        stroke-width="1.6"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
+                    <img src="https://cdn.simpleicons.org/laravel" alt="" loading="lazy" decoding="async" />
                   </span>
                   <span>Laravel</span>
                 </li>
                 <li class="stack-item">
                   <span class="stack-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none">
-                      <path
-                        d="M8 8c1.2-2.2 6.8-2.2 8 0s-2 6-4 6-5.2-3.8-4-6Z"
-                        stroke="currentColor"
-                        stroke-width="1.6"
-                        stroke-linejoin="round"
-                      />
-                      <path
-                        d="M12 14v6"
-                        stroke="currentColor"
-                        stroke-width="1.6"
-                        stroke-linecap="round"
-                      />
-                    </svg>
+                    <img src="https://cdn.simpleicons.org/python" alt="" loading="lazy" decoding="async" />
                   </span>
                   <span>Python (Flask & Django)</span>
                 </li>
                 <li class="stack-item">
                   <span class="stack-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none">
-                      <path
-                        d="M7 17V7l10 5-10 5Z"
-                        stroke="currentColor"
-                        stroke-width="1.6"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
+                    <img src="https://cdn.simpleicons.org/wordpress" alt="" loading="lazy" decoding="async" />
                   </span>
-                  <span>Flutter</span>
+                  <span>WordPress</span>
                 </li>
               </ul>
             </div>
@@ -971,7 +938,7 @@
                 <div class="group-title">Mobile</div>
               </div>
               <div class="pills">
-                <span class="pill">Flutter</span>
+                <span class="pill">WordPress</span>
                 <span class="pill">State Management</span>
                 <span class="pill">API Integration</span>
                 <span class="pill">App UI</span>
@@ -1032,7 +999,7 @@
             <div class="tl-item">
               <div class="tl-meta">2025 – 2026</div>
               <div>
-                <p class="tl-title">Mobile apps with Flutter</p>
+                <p class="tl-title">Mobile apps with WordPress</p>
                 <p class="tl-desc">Small apps that prioritize usability: sensible spacing, readable type, solid states.</p>
               </div>
             </div>
@@ -1204,8 +1171,8 @@
         },
         {
           name: "Habit Notes (Mobile)",
-          description: "A small Flutter app to log habits, add quick notes, and review streaks without clutter.",
-          tech: ["Flutter", "Dart", "SQLite"],
+          description: "A small WordPress app to log habits, add quick notes, and review streaks without clutter.",
+          tech: ["WordPress", "Dart", "SQLite"],
           liveUrl: "#", // EDIT: replace with your project links
           githubUrl: "#", // EDIT: replace with your project links
           thumbnail: "", // leave empty for placeholder
