@@ -38,19 +38,7 @@ const AboutMe = () => {
             className="space-y-6 text-lg text-slate-600 dark:text-slate-400"
           >
             <p>
-              Hello! I'm a passionate developer and designer with a unique blend of technical and creative skills. 
-              Over the past year, I've immersed myself in real-time projects, mastering the art of building 
-              seamless digital experiences.
-            </p>
-            <p>
-              My expertise lies in <span className="text-primary-500 font-semibold">Full Stack Development</span>, 
-              where I use Laravel, React, and Flask to build scalable applications. I'm also deeply invested in 
-              the <span className="text-primary-500 font-semibold">AI-assisted coding</span> ecosystem, using AI 
-              to optimize my workflows and build smarter solutions faster.
-            </p>
-            <p>
-              Beyond the terminal, I'm a <span className="text-primary-500 font-semibold">Graphic Designer</span>. 
-              I love creating visually stunning posters and packaging that capture attention and communicate effectively.
+              AI-assisted Full-Stack Developer and Graphic Designer with 1 year of hands-on experience building scalable web and mobile applications using React, Laravel, and Python. Passionate about creating clean, maintainable code, intuitive user experiences, and visually engaging designs. Skilled in leveraging AI-powered workflows using Claude, Codex CLI, Cursor, Windsurf, Gemini, Antigravity, and Canva to improve development speed, enhance productivity, and deliver modern, reliable, and user-centric digital solutions.
             </p>
           </motion.div>
 

@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Typewriter } from 'react-simple-typewriter';
-import { MousePointer2, ExternalLink, Brush, Code } from 'lucide-react';
+import { ExternalLink, Brush, Code } from 'lucide-react';
 
 const Hero = () => {
   return (
@@ -28,24 +27,15 @@ const Hero = () => {
           Hi, I'm <span className="gradient-text">Pooja Nandhini</span>
         </motion.h1>
 
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="text-2xl md:text-3xl font-medium mb-8 text-slate-700 dark:text-slate-300 h-10"
+          className="mb-8 text-xl md:text-2xl font-medium text-slate-700 dark:text-slate-300"
         >
-          I'm a{' '}
-          <span className="text-primary-500 underline decoration-primary-500/30">
-            <Typewriter
-              words={['Full Stack Developer', 'AI-Assisted Builder', 'Graphic Designer']}
-              loop={0}
-              cursor
-              cursorStyle='|'
-              typeSpeed={70}
-              deleteSpeed={50}
-              delaySpeed={1500}
-            />
-          </span>
+          <p className="text-primary-500 font-semibold">
+            Full-Stack Developer • AI-Assisted Developer • Graphic Designing • Mobile &amp; Web Applications
+          </p>
         </motion.div>
 
         <motion.p 
@@ -54,8 +44,7 @@ const Hero = () => {
           transition={{ delay: 0.3 }}
           className="max-w-2xl mx-auto text-lg text-slate-600 dark:text-slate-400 mb-10 leading-relaxed"
         >
-          I build smart applications and create visually impactful designs that bring ideas to life. 
-          Bridging the gap between robust code and creative aesthetics.
+          AI-assisted Full-Stack Developer and Graphic Designer with 1 year of hands-on experience building scalable web and mobile applications using React, Laravel, and Python. Passionate about creating clean, maintainable code, intuitive user experiences, and visually engaging designs. Skilled in leveraging AI-powered workflows using Claude, Codex CLI, Cursor, Windsurf, Gemini, Antigravity, and Canva to improve development speed, enhance productivity, and deliver modern, reliable, and user-centric digital solutions.
         </motion.p>
 
         <motion.div 
