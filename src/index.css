@@ -4,55 +4,198 @@
 
 @layer base {
   :root {
-    --glass-bg: rgba(255, 255, 255, 0.05);
-    --glass-border: rgba(255, 255, 255, 0.1);
+    color-scheme: dark;
   }
 
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 96px;
   }
 
   body {
-    @apply antialiased transition-colors duration-300;
+    margin: 0;
+    min-width: 320px;
+    background:
+      radial-gradient(circle at top left, rgba(212, 175, 55, 0.14), transparent 24%),
+      radial-gradient(circle at top right, rgba(255, 215, 0, 0.08), transparent 20%),
+      linear-gradient(180deg, #0a0a0a 0%, #121212 100%);
+    color: #f8f8f8;
+    font-family: 'Manrope', 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+      sans-serif;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
   }
 
-  .dark {
-    color-scheme: dark;
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.028) 1px, transparent 1px);
+    background-size: 72px 72px;
+    mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.8), transparent 90%);
+    opacity: 0.5;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  ::selection {
+    background: rgba(212, 175, 55, 0.28);
+    color: #fff;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #0a0a0a;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-radius: 999px;
+    border: 2px solid #0a0a0a;
+    background: linear-gradient(180deg, rgba(212, 175, 55, 0.7), rgba(255, 215, 0, 0.45));
   }
 }
 
 @layer components {
-  .glass {
-    @apply backdrop-blur-md bg-white/10 dark:bg-slate-900/40 border border-white/20 dark:border-white/10;
+  .container-shell {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-pad {
+    @apply py-20 sm:py-24 lg:py-28;
   }
 
   .glass-card {
-    @apply glass shadow-xl rounded-2xl p-6 transition-all duration-300 hover:shadow-2xl hover:scale-[1.02];
+    @apply rounded-[32px] border border-white/10 bg-white/5 backdrop-blur-2xl;
+    box-shadow:
+      0 16px 80px rgba(0, 0, 0, 0.38),
+      inset 0 1px 0 rgba(255, 255, 255, 0.05);
   }
 
-  .section-padding {
-    @apply py-20 px-6 lg:px-24;
+  .gold-ring {
+    position: relative;
   }
 
-  .gradient-text {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-400 to-creative;
+  .gold-ring::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.24), rgba(255, 255, 255, 0.05), rgba(212, 175, 55, 0.14));
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0.6;
+    pointer-events: none;
+  }
+
+  .hero-grid {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+    background-size: 64px 64px;
+    mask-image: radial-gradient(circle at center, black 35%, transparent 82%);
+    animation: gridDrift 18s linear infinite;
+  }
+
+  .section-eyebrow {
+    @apply text-[11px] uppercase tracking-[0.4em] text-[#FFD700]/80;
+  }
+
+  .section-title {
+    @apply mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl lg:text-5xl;
+  }
+
+  .section-copy {
+    @apply mt-4 max-w-3xl text-sm leading-7 text-zinc-300 sm:text-base;
+  }
+
+  .button-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-[#D4AF37] px-5 py-3 text-sm font-semibold text-black transition duration-300 hover:-translate-y-0.5 hover:bg-[#FFD700];
+  }
+
+  .button-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-3 text-sm font-semibold text-white transition duration-300 hover:-translate-y-0.5 hover:border-[#D4AF37]/30 hover:bg-white/10;
+  }
+
+  .tag {
+    @apply inline-flex items-center rounded-full border border-[#D4AF37]/20 bg-[#D4AF37]/10 px-3 py-1 text-xs font-medium text-[#FFD700];
+  }
+
+  .nav-blur {
+    @apply border-b border-white/10 bg-[#0A0A0A]/80 backdrop-blur-2xl;
   }
 }
 
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
+@layer utilities {
+  .text-gold {
+    color: #ffd700;
+  }
 }
 
-::-webkit-scrollbar-track {
-  background: transparent;
+@keyframes loaderSweep {
+  0% {
+    transform: translateX(-20%);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(40%);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateX(120%);
+    opacity: 0;
+  }
 }
 
-::-webkit-scrollbar-thumb {
-  @apply bg-primary-500/20 rounded-full hover:bg-primary-500/40 transition-colors;
+@keyframes gridDrift {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 64px 64px;
+  }
 }
 
-/* Loader Styles */
-.loader-container {
-  @apply fixed inset-0 z-50 flex items-center justify-center bg-white dark:bg-dark-bg transition-opacity duration-1000;
+@keyframes pulseGlow {
+  0%, 100% {
+    transform: scale(0.96);
+    opacity: 0.45;
+  }
+  50% {
+    transform: scale(1.04);
+    opacity: 0.9;
+  }
+}
+
+@keyframes orbitFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(12deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(12deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }

@@ -7,44 +7,30 @@ export default {
   darkMode: 'class',
   theme: {
     extend: {
-      colors: {
-        primary: {
-          50: '#f0f9ff',
-          100: '#e0f2fe',
-          200: '#bae6fd',
-          300: '#7dd3fc',
-          400: '#38bdf8',
-          500: '#0ea5e9',
-          600: '#0284c7',
-          700: '#0369a1',
-          800: '#075985',
-          900: '#0c4a6e',
-          950: '#082f49',
-        },
-        dark: {
-          bg: '#0f172a',
-          surface: '#1e293b',
-          border: '#334155',
-          text: '#f8fafc',
-        },
-        creative: '#a855f7',
-        accent: {
-          glow: '#38bdf8',
-        }
+      fontFamily: {
+        sans: ['Manrope', 'Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        display: ['Space Grotesk', 'Manrope', 'ui-sans-serif', 'system-ui', 'sans-serif'],
       },
-      backgroundImage: {
-        'glass-gradient': 'linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0))',
-        'glass-dark': 'linear-gradient(135deg, rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.3))',
+      colors: {
+        ink: '#0A0A0A',
+        panel: '#121212',
+        gold: '#D4AF37',
+        goldBright: '#FFD700',
+        mist: '#F5F1E8',
       },
       animation: {
-        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-        'float': 'float 6s ease-in-out infinite',
+        float: 'float 7s ease-in-out infinite',
+        glow: 'glow 3.5s ease-in-out infinite',
       },
       keyframes: {
         float: {
-          '0%, 100%': { transform: 'translateY(0)' },
-          '50%': { transform: 'translateY(-20px)' },
-        }
+          '0%, 100%': { transform: 'translateY(0px)' },
+          '50%': { transform: 'translateY(-12px)' },
+        },
+        glow: {
+          '0%, 100%': { opacity: 0.7 },
+          '50%': { opacity: 1 },
+        },
       }
     },
   },
