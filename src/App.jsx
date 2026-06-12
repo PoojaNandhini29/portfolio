@@ -14,29 +14,22 @@ import {
   ExternalLink,
   GitFork,
   Globe2,
-  Hexagon,
   Image,
   LayoutGrid,
   Mail,
   Maximize2,
   Menu,
-  Orbit,
   Palette,
-  Play,
-  ScanSearch,
   ShieldCheck,
   Star,
   TimerReset,
-  Triangle,
   Workflow,
   X,
-  Zap,
   MoveRight,
 } from 'lucide-react';
 
 const navLinks = [
   { label: 'About', href: '#about' },
-  { label: 'Skills', href: '#skills' },
   { label: 'Experience', href: '#experience' },
   { label: 'Projects', href: '#projects' },
   { label: 'Workflow', href: '#workflow' },
@@ -72,21 +65,44 @@ const expertise = [
   },
 ];
 
+const aboutExpertise = expertise.filter((item) => item.title !== 'AI Engineering');
+
 const timeline = [
   {
-    date: '2025 - Present',
-    title: 'Production-focused development',
-    text: 'Focused on building production-ready applications through AI-assisted workflows, scalable architecture, and design-led engineering practices.',
+    period: 'Currently',
+    title: 'Pixel Perfect Software Solutions',
+    role: 'Full-Stack Developer & Graphic Designer',
+    text: 'Currently working as a Full-Stack Developer and Graphic Designer, building scalable web and mobile applications while creating user-focused digital experiences and branding assets.',
+    responsibilities: [
+      'Developing responsive web applications and mobile interfaces using modern frontend and backend technologies.',
+      'Building scalable backend systems, REST APIs, and database-driven solutions.',
+      'Designing intuitive UI/UX experiences and maintaining consistent design systems.',
+      'Creating branding materials, graphics, and digital assets for client projects.',
+      'Using AI-assisted development workflows to accelerate debugging, feature development, and productivity.',
+      'Collaborating with teams to deliver production-ready applications with clean and maintainable code.',
+    ],
   },
   {
-    date: 'Delivery',
-    title: 'Web, mobile, and automation',
-    text: 'Experienced in developing web applications, mobile interfaces, intelligent systems, and automation solutions with clean implementation standards.',
+    period: 'Internship',
+    title: 'Straits Partners',
+    role: 'Zoho Partner Intern',
+    text: 'Gained hands-on experience with Zoho-based business solutions, automation workflows, and application customization.',
+    responsibilities: [
+      'Worked on Zoho ecosystem tools and business application configurations.',
+      'Supported workflow automation and process optimization tasks.',
+      'Assisted in implementing customized business solutions for clients.',
+    ],
   },
   {
-    date: 'Experience',
-    title: 'AI-assisted execution',
-    text: 'Uses AI tools to shorten iteration cycles, refine prompts, accelerate debugging, and support rapid feature delivery without losing quality.',
+    period: 'Internship',
+    title: 'Django-Based Web Developer Intern',
+    role: 'Web Development Intern',
+    text: 'Worked on web development projects using Django, focusing on backend development and dynamic web application features.',
+    responsibilities: [
+      'Developed backend functionalities using Django and Python.',
+      'Worked with databases, APIs, and dynamic web components.',
+      'Contributed to building and maintaining web application features.',
+    ],
   },
 ];
 
@@ -271,152 +287,6 @@ function CursorGlow({ x, y }) {
       style={{ x, y, scale: 1.08 }}
       aria-hidden="true"
     />
-  );
-}
-
-function Loader() {
-  const [progress, setProgress] = useState(0);
-
-  useEffect(() => {
-    let frame;
-    const start = performance.now();
-
-    const tick = (now) => {
-      const elapsed = now - start;
-      const value = Math.min(100, Math.floor((elapsed / 1800) * 100));
-      setProgress(value);
-      if (value < 100) {
-        frame = requestAnimationFrame(tick);
-      }
-    };
-
-    frame = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(frame);
-  }, []);
-
-  return (
-    <motion.div
-      className="fixed inset-0 z-[80] overflow-hidden bg-[#0A0A0A]"
-      initial={{ opacity: 1 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.45 }}
-    >
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(212,175,55,0.14),transparent_30%),radial-gradient(circle_at_bottom_right,rgba(255,255,255,0.08),transparent_24%)]" />
-      <div className="absolute inset-0 bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.03),transparent)] bg-[length:240px_100%] animate-[loaderSweep_2.4s_ease-in-out_infinite]" />
-
-      <div className="relative flex h-full items-center justify-center px-6">
-        <div className="w-full max-w-2xl">
-          <div className="mx-auto flex w-fit items-center gap-4 rounded-full border border-white/10 bg-white/5 px-5 py-3 backdrop-blur-xl">
-            <div className="flex items-center gap-2">
-              <span className="h-2.5 w-2.5 rounded-full bg-[#FFD700] animate-pulse" />
-              <span className="h-2.5 w-2.5 rounded-full bg-[#D4AF37]/70" />
-              <span className="h-2.5 w-2.5 rounded-full bg-white/40" />
-            </div>
-            <p className="text-[11px] uppercase tracking-[0.42em] text-white/50">Loading premium portfolio</p>
-          </div>
-
-          <div className="mt-10 grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
-            <div className="text-center lg:text-left">
-              <motion.p
-                initial={{ opacity: 0, y: 18 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.45 }}
-                className="text-[11px] uppercase tracking-[0.38em] text-[#FFD700]/80"
-              >
-                Pooja Nandhini
-              </motion.p>
-              <motion.h1
-                initial={{ opacity: 0, y: 24 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.55, delay: 0.08 }}
-                className="mt-4 font-display text-5xl font-semibold tracking-tight text-white sm:text-6xl"
-              >
-                AI-Assisted Full-Stack Developer
-              </motion.h1>
-              <motion.p
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.45, delay: 0.16 }}
-                className="mt-5 max-w-xl text-sm leading-7 text-zinc-300 sm:text-base"
-              >
-                Creative Technologist portfolio initializing with cinematic motion, premium interactions, and a luxury black-and-gold visual system.
-              </motion.p>
-
-              <div className="mt-8 flex items-center justify-center gap-4 lg:justify-start">
-                <div className="h-1.5 w-44 overflow-hidden rounded-full bg-white/10">
-                  <motion.div
-                    className="h-full rounded-full bg-gradient-to-r from-[#D4AF37] via-[#FFD700] to-white"
-                    initial={{ width: 0 }}
-                    animate={{ width: `${progress}%` }}
-                    transition={{ ease: 'easeOut', duration: 0.1 }}
-                  />
-                </div>
-                <span className="font-display text-sm text-white/70">{String(progress).padStart(3, '0')}%</span>
-              </div>
-            </div>
-
-            <div className="relative mx-auto h-48 w-48 sm:h-56 sm:w-56">
-              <motion.div
-                className="absolute inset-0 rounded-full border border-[#D4AF37]/30"
-                animate={{ rotate: 360 }}
-                transition={{ duration: 14, repeat: Infinity, ease: 'linear' }}
-              />
-              <motion.div
-                className="absolute inset-5 rounded-full border border-white/10"
-                animate={{ rotate: -360 }}
-                transition={{ duration: 18, repeat: Infinity, ease: 'linear' }}
-              />
-              <motion.div
-                className="absolute inset-12 rounded-[28px] border border-[#D4AF37]/20 bg-[#D4AF37]/10 backdrop-blur-xl"
-                animate={{ rotate: 8, scale: [1, 1.05, 1] }}
-                transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-              >
-                <div className="flex h-full items-center justify-center text-center">
-                  <div>
-                    <p className="text-[10px] uppercase tracking-[0.45em] text-white/50">PN</p>
-                    <div className="mt-3 flex items-center justify-center gap-2 text-xs text-[#FFD700]">
-                      <Play className="h-3.5 w-3.5" />
-                      Launch system
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-              <motion.div
-                className="absolute -left-2 top-14 rounded-2xl border border-white/10 bg-white/5 p-2 text-[#FFD700]"
-                animate={{ y: [0, -5, 0], rotate: [0, 10, 0] }}
-                transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
-              >
-                <Hexagon className="h-4 w-4" />
-              </motion.div>
-              <motion.div
-                className="absolute -right-2 bottom-14 rounded-2xl border border-white/10 bg-white/5 p-2 text-[#FFD700]"
-                animate={{ y: [0, 5, 0], rotate: [0, -8, 0] }}
-                transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut' }}
-              >
-                <Triangle className="h-4 w-4" />
-              </motion.div>
-              <motion.div
-                className="absolute right-10 top-2 rounded-2xl border border-white/10 bg-white/5 p-2 text-white/60"
-                animate={{ scale: [1, 1.08, 1] }}
-                transition={{ duration: 3.8, repeat: Infinity, ease: 'easeInOut' }}
-              >
-                <ScanSearch className="h-4 w-4" />
-              </motion.div>
-            </div>
-          </div>
-
-          <div className="mt-10 flex items-center justify-center gap-3 text-white/40">
-            <motion.div
-              className="h-3 w-3 rounded-full border border-[#FFD700]/50"
-              animate={{ scale: [1, 1.4, 1], opacity: [0.4, 1, 0.4] }}
-              transition={{ duration: 1.8, repeat: Infinity }}
-            />
-            <span className="text-[11px] uppercase tracking-[0.42em]">Initializing motion layers</span>
-          </div>
-        </div>
-      </div>
-    </motion.div>
   );
 }
 
@@ -616,7 +486,6 @@ function ProjectCard({ project, index }) {
 }
 
 function App() {
-  const [loading, setLoading] = useState(true);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -624,11 +493,6 @@ function App() {
   const cursorY = useMotionValue(-100);
   const smoothX = useSpring(cursorX, { stiffness: 120, damping: 18, mass: 0.4 });
   const smoothY = useSpring(cursorY, { stiffness: 120, damping: 18, mass: 0.4 });
-
-  useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 1850);
-    return () => clearTimeout(timer);
-  }, []);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -649,16 +513,14 @@ function App() {
   }, [cursorX, cursorY]);
 
   useEffect(() => {
-    document.body.style.overflow = loading || mobileOpen ? 'hidden' : '';
+    document.body.style.overflow = mobileOpen ? 'hidden' : '';
     return () => {
       document.body.style.overflow = '';
     };
-  }, [loading, mobileOpen]);
+  }, [mobileOpen]);
 
   return (
     <div className="min-h-screen overflow-x-hidden bg-[#0A0A0A] text-white">
-      <AnimatePresence>{loading ? <Loader /> : null}</AnimatePresence>
-
       <CursorGlow x={smoothX} y={smoothY} />
 
       <a
@@ -783,7 +645,7 @@ function App() {
                 initial={{ opacity: 0, y: 28 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, ease: 'easeOut' }}
-                className="max-w-3xl"
+                className="max-w-3xl hero-copy-layer"
               >
                 <motion.p
                   initial={{ opacity: 0, y: 12 }}
@@ -815,80 +677,51 @@ function App() {
               </motion.div>
 
               <motion.div
-                initial={{ opacity: 0, y: 32, scale: 0.98 }}
+                initial={{ opacity: 0, y: 24, scale: 0.985 }}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
-                transition={{ duration: 0.75, delay: 0.1, ease: 'easeOut' }}
-                className="relative"
+                transition={{ duration: 0.9, delay: 0.06, ease: [0.22, 1, 0.36, 1] }}
+                className="hero-visual relative"
               >
-                <div className="absolute -inset-6 rounded-[36px] bg-[#D4AF37]/12 blur-[100px]" />
+                <div className="absolute -inset-6 rounded-[36px] bg-[#D4AF37]/8 blur-[120px]" />
                 <div className="relative min-h-[520px] overflow-hidden rounded-[38px] border border-white/10 bg-[#090909]/90 p-5 shadow-[0_40px_120px_rgba(0,0,0,0.45)]">
                   <div className="hero-grid absolute inset-0 opacity-35" />
-                  <div className="absolute left-10 top-12 h-28 w-28 rounded-full border border-[#D4AF37]/25 bg-[#D4AF37]/10 blur-[1px] animate-[float_7s_ease-in-out_infinite]" />
-                  <div className="absolute right-10 top-24 h-20 w-20 rounded-[30px] border border-white/10 bg-white/5 backdrop-blur-xl animate-[float_8s_ease-in-out_infinite]" />
-                  <div className="absolute bottom-24 left-16 h-36 w-36 rounded-full border border-white/8 bg-gradient-to-br from-white/6 to-transparent animate-[pulseGlow_5.5s_ease-in-out_infinite]" />
-                  <div className="absolute -right-10 bottom-10 h-52 w-52 rotate-12 rounded-[42px] border border-[#D4AF37]/20 bg-gradient-to-br from-[#D4AF37]/20 via-white/5 to-transparent shadow-[0_0_80px_rgba(212,175,55,0.12)] animate-[orbitFloat_9s_ease-in-out_infinite]" />
-
-                  <div className="absolute left-6 top-6 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[10px] uppercase tracking-[0.4em] text-white/45 backdrop-blur-xl">
-                    Cinematic Motion
-                  </div>
-                  <div className="absolute right-6 top-6 rounded-full border border-[#D4AF37]/20 bg-[#D4AF37]/10 px-4 py-2 text-[10px] uppercase tracking-[0.4em] text-[#FFD700] backdrop-blur-xl">
-                    Premium UI
-                  </div>
+                  <div className="hero-orb hero-orb-one absolute left-12 top-14 h-24 w-24 rounded-full border border-[#D4AF37]/18 bg-[#D4AF37]/8 blur-[1px]" />
+                  <div className="hero-orb hero-orb-two absolute right-12 top-24 h-16 w-16 rounded-[28px] border border-white/10 bg-white/4 backdrop-blur-xl" />
+                  <div className="hero-sheen absolute inset-0" />
 
                   <div className="relative z-10 flex h-full min-h-[520px] items-center justify-center">
-                    <div className="relative h-72 w-72 sm:h-80 sm:w-80">
+                    <div className="hero-core relative h-72 w-72 sm:h-80 sm:w-80">
                       <motion.div
                         className="absolute inset-0 rounded-full border border-white/10"
                         animate={{ rotate: 360 }}
-                        transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
+                        transition={{ duration: 34, repeat: Infinity, ease: 'linear' }}
                       />
                       <motion.div
                         className="absolute inset-8 rounded-full border border-[#D4AF37]/20"
                         animate={{ rotate: -360 }}
-                        transition={{ duration: 16, repeat: Infinity, ease: 'linear' }}
+                        transition={{ duration: 28, repeat: Infinity, ease: 'linear' }}
                       />
                       <motion.div
                         className="absolute inset-16 rounded-full bg-gradient-to-br from-[#D4AF37]/20 via-white/5 to-transparent blur-2xl"
-                        animate={{ scale: [0.96, 1.04, 0.96], opacity: [0.55, 0.85, 0.55] }}
-                        transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
+                        animate={{ scale: [0.98, 1.02, 0.98], opacity: [0.5, 0.72, 0.5] }}
+                        transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
                       />
 
                       <div className="absolute left-1/2 top-1/2 h-44 w-44 -translate-x-1/2 -translate-y-1/2">
                         <motion.div
                           className="absolute inset-0 rounded-[42px] border border-white/10 bg-white/6 backdrop-blur-2xl"
-                          animate={{ rotate: [0, 5, 0, -5, 0], y: [0, -6, 0] }}
-                          transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
+                          animate={{ rotate: [0, 2, 0], y: [0, -3, 0] }}
+                          transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
                         />
                         <motion.div
                           className="absolute inset-4 rounded-[34px] border border-[#D4AF37]/20 bg-gradient-to-br from-[#D4AF37]/15 via-white/6 to-transparent"
-                          animate={{ rotate: [0, -4, 0, 4, 0] }}
-                          transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+                          animate={{ rotate: [0, -2, 0] }}
+                          transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }}
                         />
                         <div className="absolute inset-0 flex items-center justify-center">
-                          <div className="text-center">
-                            <p className="text-[10px] uppercase tracking-[0.5em] text-white/45">P N</p>
-                            <p className="mt-3 text-sm text-[#FFD700]">Creative Technologist</p>
-                          </div>
+                          <div className="hero-core-mark" />
                         </div>
                       </div>
-
-                      <motion.div
-                        className="absolute left-0 top-10 flex items-center gap-3 rounded-[22px] border border-white/10 bg-black/30 px-4 py-3 backdrop-blur-xl"
-                        animate={{ x: [0, 10, 0] }}
-                        transition={{ duration: 5.5, repeat: Infinity, ease: 'easeInOut' }}
-                      >
-                        <span className="h-2.5 w-2.5 rounded-full bg-[#FFD700]" />
-                        <span className="text-xs uppercase tracking-[0.3em] text-white/65">Motion layers</span>
-                      </motion.div>
-
-                      <motion.div
-                        className="absolute -right-2 bottom-12 flex items-center gap-3 rounded-[22px] border border-white/10 bg-black/30 px-4 py-3 backdrop-blur-xl"
-                        animate={{ x: [0, -10, 0] }}
-                        transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
-                      >
-                        <span className="h-2.5 w-2.5 rounded-full bg-white/70" />
-                        <span className="text-xs uppercase tracking-[0.3em] text-white/65">Luxury system</span>
-                      </motion.div>
                     </div>
                   </div>
                 </div>
@@ -919,18 +752,17 @@ function App() {
             <div>
               <SectionHeading
                 eyebrow="About"
-                title="A premium portfolio designed to communicate technical depth quickly."
-                description="The goal is to feel like a premium product launch while still staying readable for recruiters, clients, and technical leads."
+                title="AI-Assisted Full-Stack Developer with a design-led approach."
               />
               <GlassCard className="p-6 sm:p-8">
                 <p className="text-base leading-8 text-zinc-300">
-                  I am an AI-Assisted Full-Stack Developer with hands-on experience building scalable web and mobile applications using modern frontend, backend, database, and AI technologies. My expertise combines software engineering, AI-assisted development workflows, and UI/UX design principles to deliver efficient, maintainable, and user-focused solutions. Alongside development, I specialize in graphic design and digital branding, enabling me to bridge technical implementation with creative problem-solving.
+                  I am an AI-Assisted Full-Stack Developer with hands-on experience building scalable web and mobile applications using modern frontend, backend, database, and AI technologies. I specialize in developing efficient, maintainable, and user-centric solutions by combining strong software engineering practices with AI-powered development workflows. With a solid understanding of UI/UX principles and expertise in graphic design and digital branding, I effectively bridge technical execution and creative problem-solving to deliver impactful digital experiences.
                 </p>
               </GlassCard>
             </div>
 
             <div className="grid gap-4 sm:grid-cols-2">
-              {expertise.map((item, index) => {
+              {aboutExpertise.map((item, index) => {
                 const Icon = item.icon;
                 return (
                   <motion.div
@@ -964,119 +796,44 @@ function App() {
           </div>
         </RevealSection>
 
-        <RevealSection id="skills" className="bg-[linear-gradient(180deg,rgba(255,255,255,0.014),rgba(255,255,255,0))]">
-          <div className="container-shell">
-            <SectionHeading
-              eyebrow="Technical Expertise"
-              title="Categorized skills presented with depth and breathing room."
-              description="A recruiter can scan this section quickly, but the layered presentation still makes the profile feel premium and intentional."
-            />
-
-            <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-              {expertise.map((group, index) => {
-                const Icon = group.icon;
-                return (
-                  <motion.div
-                    key={group.title}
-                    initial={{ opacity: 0, y: 18 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.2 }}
-                    transition={{ duration: 0.5, delay: index * 0.05 }}
-                  >
-                    <GlassCard className="h-full p-6 transition-transform duration-300 hover:-translate-y-1 hover:border-[#D4AF37]/20">
-                      <div className="flex items-center gap-3">
-                        <div className="rounded-2xl border border-white/10 bg-white/5 p-3 text-[#FFD700]">
-                          <Icon className="h-5 w-5" />
-                        </div>
-                        <h3 className="text-xl font-semibold text-white">{group.title}</h3>
-                      </div>
-                      <div className="mt-5 flex flex-wrap gap-2">
-                        {group.items.map((item) => (
-                          <span key={item} className="tag">
-                            {item}
-                          </span>
-                        ))}
-                      </div>
-                    </GlassCard>
-                  </motion.div>
-                );
-              })}
-            </div>
-
-            <div className="mt-8 grid gap-4 lg:grid-cols-[1fr_1fr]">
-              <GlassCard className="p-6">
-                <div className="flex items-center justify-between">
-                  <p className="text-xs uppercase tracking-[0.35em] text-white/45">Tech stack visualization</p>
-                  <Orbit className="h-4 w-4 text-[#FFD700]" />
-                </div>
-                <div className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-4">
-                  {['React', 'Laravel', 'Python', 'OpenAI', 'Supabase', 'Firebase', 'Canva', 'GitHub Copilot'].map((item) => (
-                    <div
-                      key={item}
-                      className="rounded-[22px] border border-white/10 bg-black/25 p-4 text-center text-sm text-white/75"
-                    >
-                      {item}
-                    </div>
-                  ))}
-                </div>
-              </GlassCard>
-
-              <GlassCard className="p-6">
-                <div className="flex items-center justify-between">
-                  <p className="text-xs uppercase tracking-[0.35em] text-white/45">Tooling focus</p>
-                  <Zap className="h-4 w-4 text-[#FFD700]" />
-                </div>
-                <div className="mt-5 space-y-3">
-                  {['Claude', 'Cursor', 'Windsurf', 'Codex CLI', 'Gemini', 'Antigravity'].map((tool) => (
-                    <div key={tool} className="flex items-center justify-between rounded-[20px] border border-white/10 bg-black/25 px-4 py-3">
-                      <span className="text-sm text-white/80">{tool}</span>
-                      <span className="text-xs uppercase tracking-[0.28em] text-[#FFD700]/75">AI tool</span>
-                    </div>
-                  ))}
-                </div>
-              </GlassCard>
-            </div>
-          </div>
-        </RevealSection>
-
         <RevealSection id="experience">
-          <div className="container-shell grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
-            <GlassCard className="p-6 sm:p-8">
-              <p className="section-eyebrow">Experience</p>
-              <h2 className="section-title">AI-Assisted Full-Stack Developer</h2>
-              <p className="mt-5 text-base leading-8 text-zinc-300">
-                Focused on building production-ready applications through AI-assisted workflows, scalable architecture, and design-led engineering practices. Experienced in developing web applications, mobile interfaces, intelligent systems, and automation solutions.
-              </p>
-              <div className="mt-6 flex flex-wrap gap-2">
-                {['Production-ready', 'AI-assisted', 'Scalable', 'Maintainable'].map((item) => (
-                  <span key={item} className="tag">
-                    {item}
-                  </span>
-                ))}
-              </div>
-            </GlassCard>
+          <div className="container-shell">
+            <SectionHeading eyebrow="Experience" title="Professional experience and internships." />
 
-            <div className="relative">
-              <div className="absolute left-6 top-2 bottom-2 w-px bg-gradient-to-b from-[#D4AF37]/60 via-white/10 to-transparent" />
-              <div className="grid gap-4">
-                {timeline.map((item, index) => (
-                  <motion.div
-                    key={item.title}
-                    initial={{ opacity: 0, x: 26 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true, amount: 0.22 }}
-                    transition={{ duration: 0.45, delay: index * 0.07 }}
-                    className="relative pl-14"
-                  >
-                    <div className="absolute left-[16px] top-8 h-4 w-4 rounded-full border border-[#D4AF37]/40 bg-[#D4AF37]/20 shadow-[0_0_0_10px_rgba(212,175,55,0.06)]" />
-                    <GlassCard className="p-5 sm:p-6">
-                      <p className="text-[11px] uppercase tracking-[0.35em] text-[#FFD700]/80">{item.date}</p>
-                      <h3 className="mt-3 text-xl font-semibold text-white">{item.title}</h3>
-                      <p className="mt-3 text-sm leading-7 text-zinc-300">{item.text}</p>
-                    </GlassCard>
-                  </motion.div>
-                ))}
-              </div>
+            <div className="grid gap-5">
+              {timeline.map((item, index) => (
+                <motion.div
+                  key={item.title}
+                  initial={{ opacity: 0, y: 18 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{ duration: 0.45, delay: index * 0.06 }}
+                >
+                  <GlassCard className="p-6 sm:p-8">
+                    <div className="flex flex-col gap-2 border-b border-white/10 pb-5 sm:flex-row sm:items-start sm:justify-between">
+                      <div>
+                        <p className="text-[11px] uppercase tracking-[0.35em] text-[#FFD700]/80">{item.period}</p>
+                        <h3 className="mt-2 text-2xl font-semibold text-white">{item.title}</h3>
+                        <p className="mt-2 text-sm uppercase tracking-[0.28em] text-white/45">{item.role}</p>
+                      </div>
+                    </div>
+
+                    <p className="mt-5 text-base leading-8 text-zinc-300">{item.text}</p>
+
+                    <div className="mt-6">
+                      <p className="text-xs uppercase tracking-[0.35em] text-white/45">Key Responsibilities</p>
+                      <ul className="mt-4 space-y-3">
+                        {item.responsibilities.map((responsibility) => (
+                          <li key={responsibility} className="flex gap-3 text-sm leading-7 text-zinc-300">
+                            <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-[#FFD700]" />
+                            <span>{responsibility}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </GlassCard>
+                </motion.div>
+              ))}
             </div>
           </div>
         </RevealSection>
