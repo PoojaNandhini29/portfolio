@@ -12,8 +12,6 @@ import {
   ExternalLink,
   Globe2,
   Image,
-  Instagram,
-  Linkedin,
   Mail,
   Maximize2,
   Megaphone,
@@ -230,9 +228,9 @@ const projects = [
 ];
 
 const socials = [
-  { label: 'Instagram', icon: Instagram, href: '#' },
-  { label: 'LinkedIn', icon: Linkedin, href: '#' },
-  { label: 'WhatsApp', icon: BriefcaseBusiness, href: '#' },
+  { label: 'Instagram', icon: Camera, href: '#' },
+  { label: 'LinkedIn', icon: BriefcaseBusiness, href: '#' },
+  { label: 'WhatsApp', icon: Share2, href: '#' },
   { label: 'Portfolio', icon: Globe2, href: '#' },
 ];
 
