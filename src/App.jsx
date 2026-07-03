@@ -5,24 +5,25 @@ import heroPreview from './assets/hero.png';
 import {
   ArrowUpRight,
   BadgeCheck,
-  Bot,
   BriefcaseBusiness,
   Camera,
   ChevronRight,
   Code2,
-  Database,
   ExternalLink,
-  GitFork,
   Globe2,
   Image,
-  LayoutGrid,
+  Instagram,
+  Linkedin,
   Mail,
   Maximize2,
+  Megaphone,
   Menu,
   Palette,
-  ShieldCheck,
+  Share2,
+  Smartphone,
   Star,
-  TimerReset,
+  TrendingUp,
+  Video,
   Workflow,
   X,
   MoveRight,
@@ -31,194 +32,207 @@ import {
 const navLinks = [
   { label: 'About', href: '#about' },
   { label: 'Experience', href: '#experience' },
-  { label: 'Projects', href: '#projects' },
-  { label: 'Workflow', href: '#workflow' },
+  { label: 'Work', href: '#projects' },
+  { label: 'Process', href: '#workflow' },
   { label: 'Services', href: '#services' },
   { label: 'Contact', href: '#contact' },
 ];
 
 const expertise = [
   {
-    title: 'Frontend Engineering',
-    icon: LayoutGrid,
-    items: ['React', 'React Native', 'JavaScript', 'HTML5', 'CSS3', 'Responsive UI Systems'],
+    title: 'Social Media Marketing',
+    icon: Share2,
+    items: ['Instagram', 'Facebook', 'Content Strategy', 'Community Growth', 'Reels & Shorts', 'Analytics'],
   },
   {
-    title: 'Backend Development',
+    title: 'Web Development',
     icon: Code2,
-    items: ['Laravel', 'Python', 'REST APIs', 'Authentication Systems', 'Backend Architecture'],
+    items: ['React', 'WordPress', 'Responsive Design', 'Landing Pages', 'E-Commerce', 'SEO-Ready Builds'],
   },
   {
-    title: 'Database & Infrastructure',
-    icon: Database,
-    items: ['MySQL', 'Firebase', 'Supabase', 'Database Design', 'Cloud Integrations'],
+    title: 'App Development',
+    icon: Smartphone,
+    items: ['Android', 'iOS', 'React Native', 'UI/UX Flows', 'App Store Launch', 'Maintenance'],
   },
   {
-    title: 'AI Engineering',
-    icon: Bot,
-    items: ['OpenAI APIs', 'AI Chatbots', 'Voice Assistants', 'Prompt Engineering', 'Workflow Automation', 'AI Agents'],
+    title: 'Video Editing',
+    icon: Video,
+    items: ['Reels & Shorts', 'Promo Videos', 'Motion Graphics', 'Premiere Pro', 'After Effects', 'Color Grading'],
   },
   {
-    title: 'Creative & Product Design',
+    title: 'Graphic Design',
     icon: Palette,
-    items: ['UI/UX Design', 'Graphic Design', 'Design Systems', 'Branding', 'User-Centered Design'],
+    items: ['Branding', 'Logo Design', 'Social Creatives', 'Print & Packaging', 'Photoshop', 'Illustrator'],
+  },
+  {
+    title: 'Digital Marketing',
+    icon: TrendingUp,
+    items: ['Meta Ads', 'Google Ads', 'SEO', 'Email Campaigns', 'Funnels', 'Performance Tracking'],
   },
 ];
 
-const aboutExpertise = expertise.filter((item) => item.title !== 'AI Engineering');
+const aboutExpertise = expertise;
 
 const timeline = [
   {
-    period: 'Currently',
-    title: 'Pixel Perfect Software Solutions',
-    role: 'Full-Stack Developer & Graphic Designer',
-    text: 'Currently working as a Full-Stack Developer and Graphic Designer, building scalable web and mobile applications while creating user-focused digital experiences and branding assets.',
+    period: '2025 — 2026',
+    title: 'Freelance Digital Creative',
+    role: 'Social · Web · App · Video · Design · Marketing',
+    text: 'Working independently with brands, startups, and small businesses — offering social media marketing, web and app development, video editing, graphic design, and digital marketing as one connected service.',
     responsibilities: [
-      'Developing responsive web applications and mobile interfaces using modern frontend and backend technologies.',
-      'Building scalable backend systems, REST APIs, and database-driven solutions.',
-      'Designing intuitive UI/UX experiences and maintaining consistent design systems.',
-      'Creating branding materials, graphics, and digital assets for client projects.',
-      'Using AI-assisted development workflows to accelerate debugging, feature development, and productivity.',
-      'Collaborating with teams to deliver production-ready applications with clean and maintainable code.',
-    ],
-  },
-  {
-    period: 'Internship',
-    title: 'Straits Partners',
-    role: 'Zoho Partner Intern',
-    text: 'Gained hands-on experience with Zoho-based business solutions, automation workflows, and application customization.',
-    responsibilities: [
-      'Worked on Zoho ecosystem tools and business application configurations.',
-      'Supported workflow automation and process optimization tasks.',
-      'Assisted in implementing customized business solutions for clients.',
-    ],
-  },
-  {
-    period: 'Internship',
-    title: 'Django-Based Web Developer Intern',
-    role: 'Web Development Intern',
-    text: 'Worked on web development projects using Django, focusing on backend development and dynamic web application features.',
-    responsibilities: [
-      'Developed backend functionalities using Django and Python.',
-      'Worked with databases, APIs, and dynamic web components.',
-      'Contributed to building and maintaining web application features.',
+      'Managing social media accounts and content calendars to grow reach, engagement, and followers.',
+      'Designing and building responsive websites and mobile apps tailored to each brand.',
+      'Editing reels, promos, and motion graphics for social and ad campaigns.',
+      'Running paid ad campaigns across Meta and Google with a focus on results.',
+      'Creating brand identities, logos, and marketing creatives from scratch.',
+      'Being a single, reliable point of contact for strategy, design, and delivery.',
     ],
   },
 ];
 
 const services = [
   {
-    title: 'Full-stack application development',
-    text: 'Modern web and mobile builds that balance performance, clarity, and maintainable code.',
+    title: 'Social Media Marketing',
+    icon: Share2,
+    text: 'Content planning, posting, and community growth that turns your profiles into a consistent lead source.',
   },
   {
-    title: 'AI integration and automation',
-    text: 'OpenAI-powered features, workflow systems, prompt engineering, chatbots, and AI assistants.',
+    title: 'Web Development',
+    icon: Code2,
+    text: 'Fast, responsive, SEO-ready websites and stores designed to convert visitors into customers.',
   },
   {
-    title: 'Product and brand design',
-    text: 'Interfaces, design systems, brand assets, and marketing creatives with a premium visual language.',
+    title: 'App Development',
+    icon: Smartphone,
+    text: 'Android and iOS apps with clean UI/UX, from concept and design through launch and support.',
   },
   {
-    title: 'Technical consulting',
-    text: 'Architecture decisions, implementation strategy, and execution guidance for teams that need speed.',
+    title: 'Video Editing',
+    icon: Video,
+    text: 'Reels, shorts, promos, and motion graphics edited to grab attention and hold it.',
+  },
+  {
+    title: 'Graphic Design',
+    icon: Palette,
+    text: 'Logos, brand identities, and social creatives with a polished, professional visual language.',
+  },
+  {
+    title: 'Digital Marketing',
+    icon: TrendingUp,
+    text: 'Meta and Google ad campaigns, SEO, and funnels built around measurable ROI.',
   },
 ];
 
 const certifications = [
-  'OpenAI API Integration',
-  'Responsive Web Design',
-  'Prompt Engineering Foundations',
-  'UI/UX & Design Systems',
+  'Meta Certified Digital Marketing Associate',
+  'Google Ads & Analytics Certified',
+  'Adobe Creative Suite — Design & Video',
+  'Social Media Marketing Specialist',
 ];
 
 const projects = [
   {
-    category: 'Web Applications',
-    title: 'Operations Command Center',
+    category: 'Social Media Marketing',
+    title: 'Brand Growth Campaign',
     description:
-      'A premium admin dashboard for high-density data, quick decisions, and fast visual scanning across operational workflows.',
+      'A full social media makeover for a lifestyle brand — content strategy, daily posting, and reels that grew the audience organically.',
     challenge:
-      'Dense data views were redesigned with stronger hierarchy, clear affordances, and refined motion to make action paths obvious.',
+      'The brand had an inconsistent feed and low engagement, with no clear content direction or posting rhythm.',
     solution:
-      'Introduced structured panels, visual connectors, and a layered interface that keeps the system readable and executive-friendly.',
-    metrics: ['38% faster review', '12 modules', '99.9% layout consistency'],
-    stack: ['React', 'Tailwind CSS', 'REST APIs', 'MySQL'],
-    image: heroPreview,
-    accent: 'from-amber-400/25 via-white/8 to-zinc-950',
-    github: '#',
-    demo: '#',
-  },
-  {
-    category: 'AI Applications',
-    title: 'AI Support Copilot',
-    description:
-      'A guidance-first assistant for drafting responses, summarizing requests, and improving support turnaround with AI.',
-    challenge:
-      'AI interactions needed to feel focused, safe, and reliable rather than generic or overly open-ended.',
-    solution:
-      'Designed constrained prompt flows, clear states, and structured outputs that help the assistant behave like a product tool.',
-    metrics: ['Faster replies', 'Reusable prompts', 'Low-friction handoff'],
-    stack: ['OpenAI API', 'Python', 'React', 'Workflow Automation'],
-    image: heroPreview,
-    accent: 'from-[#D4AF37]/25 via-white/8 to-stone-950',
-    github: '#',
-    demo: '#',
-  },
-  {
-    category: 'Mobile Applications',
-    title: 'Field Service Companion',
-    description:
-      'A mobile-first field utility for job updates, fast notes, and operational actions without unnecessary clutter.',
-    challenge:
-      'The UI needed to stay efficient on smaller screens while keeping important actions large, tactile, and obvious.',
-    solution:
-      'Used compact navigation, touch-friendly controls, and a prioritized layout that favors speed and legibility.',
-    metrics: ['Touch-optimized', 'Offline-ready UI', 'Compact flow'],
-    stack: ['React Native', 'Firebase', 'Supabase', 'Responsive Design'],
-    image: heroPreview,
-    accent: 'from-cyan-400/22 via-white/8 to-zinc-950',
-    github: '#',
-    demo: '#',
-  },
-  {
-    category: 'Automation Systems',
-    title: 'Workflow Orchestrator',
-    description:
-      'A chained automation system for tasks, notifications, and content generation powered by AI and deterministic steps.',
-    challenge:
-      'Automation had to remain transparent and editable so users could trust the outcome and understand the flow.',
-    solution:
-      'Created step-based orchestration with checkpoints, configurable triggers, and explainable AI-assisted actions.',
-    metrics: ['Reduced manual work', 'Reusable flows', 'Checkpointed actions'],
-    stack: ['OpenAI API', 'Python', 'Supabase', 'Codex CLI'],
-    image: heroPreview,
-    accent: 'from-emerald-400/22 via-white/8 to-zinc-950',
-    github: '#',
-    demo: '#',
-  },
-  {
-    category: 'UI/UX Projects',
-    title: 'Luxury Brand Identity Kit',
-    description:
-      'A visual system for brand assets, social creatives, and presentation layouts with a polished premium feel.',
-    challenge:
-      'Maintaining consistency across campaign assets while still leaving room for flexible content and formats.',
-    solution:
-      'Built a reusable design direction with controlled spacing, restrained gold accents, and a cohesive visual language.',
-    metrics: ['Reusable system', 'Premium assets', 'Brand-consistent'],
-    stack: ['Canva', 'Canva AI', 'Design Systems', 'Marketing Creatives'],
+      'Built a cohesive visual theme, a monthly content calendar, and a reels-first strategy that boosted reach and follower growth.',
+    metrics: ['3x engagement', '10k+ new followers', 'Consistent daily posts'],
+    stack: ['Instagram', 'Meta Suite', 'Content Strategy', 'Reels'],
     image: heroPreview,
     accent: 'from-fuchsia-400/20 via-white/8 to-zinc-950',
-    github: '#',
+    link: '#',
+    demo: '#',
+  },
+  {
+    category: 'Web Development',
+    title: 'Business Website & Store',
+    description:
+      'A fast, responsive website with an integrated online store, built to convert visitors into paying customers.',
+    challenge:
+      'The client needed a modern, mobile-friendly site that loaded quickly and ranked well on search.',
+    solution:
+      'Delivered a clean, SEO-ready build with clear calls to action, smooth navigation, and an easy checkout flow.',
+    metrics: ['SEO-optimized', 'Mobile-first', 'Faster load times'],
+    stack: ['React', 'WordPress', 'E-Commerce', 'SEO'],
+    image: heroPreview,
+    accent: 'from-amber-400/25 via-white/8 to-zinc-950',
+    link: '#',
+    demo: '#',
+  },
+  {
+    category: 'App Development',
+    title: 'Mobile App Launch',
+    description:
+      'A cross-platform mobile app with clean UI/UX, taken from concept and design through to store launch.',
+    challenge:
+      'The idea needed to become an intuitive, reliable app that felt effortless on both Android and iOS.',
+    solution:
+      'Designed simple user flows and a polished interface, then built and shipped the app to both app stores.',
+    metrics: ['Android & iOS', 'Intuitive UX', 'Store-ready'],
+    stack: ['React Native', 'UI/UX', 'App Store', 'Maintenance'],
+    image: heroPreview,
+    accent: 'from-cyan-400/22 via-white/8 to-zinc-950',
+    link: '#',
+    demo: '#',
+  },
+  {
+    category: 'Video Editing',
+    title: 'Promo & Reels Package',
+    description:
+      'A set of scroll-stopping reels and a promotional video edited to grab attention and drive shares.',
+    challenge:
+      'Raw footage needed to become punchy, on-brand content that performed well on social platforms.',
+    solution:
+      'Edited with tight pacing, motion graphics, captions, and color grading tuned for mobile-first viewing.',
+    metrics: ['High retention', 'Motion graphics', 'Platform-optimized'],
+    stack: ['Premiere Pro', 'After Effects', 'Motion Graphics', 'Color Grade'],
+    image: heroPreview,
+    accent: 'from-emerald-400/22 via-white/8 to-zinc-950',
+    link: '#',
+    demo: '#',
+  },
+  {
+    category: 'Graphic Design & Branding',
+    title: 'Complete Brand Identity',
+    description:
+      'A full brand identity kit — logo, color system, typography, and social creatives with a premium, cohesive feel.',
+    challenge:
+      'The brand needed a memorable identity that stayed consistent across print, social, and packaging.',
+    solution:
+      'Created a reusable design system with a distinctive logo, controlled palette, and ready-to-use templates.',
+    metrics: ['Reusable system', 'Premium assets', 'Brand-consistent'],
+    stack: ['Photoshop', 'Illustrator', 'Branding', 'Social Creatives'],
+    image: heroPreview,
+    accent: 'from-[#D4AF37]/25 via-white/8 to-stone-950',
+    link: '#',
+    demo: '#',
+  },
+  {
+    category: 'Digital Marketing',
+    title: 'Paid Ads & Lead Funnel',
+    description:
+      'A performance marketing campaign across Meta and Google, built around a lead funnel that delivers measurable ROI.',
+    challenge:
+      'The client was spending on ads with little tracking and unclear returns on the budget.',
+    solution:
+      'Built targeted ad sets, a conversion-focused landing page, and tracking to turn spend into qualified leads.',
+    metrics: ['Lower cost per lead', 'Tracked ROI', 'Higher conversions'],
+    stack: ['Meta Ads', 'Google Ads', 'SEO', 'Funnels'],
+    image: heroPreview,
+    accent: 'from-sky-400/20 via-white/8 to-zinc-950',
+    link: '#',
     demo: '#',
   },
 ];
 
 const socials = [
-  { label: 'GitHub', icon: GitFork, href: '#' },
-  { label: 'LinkedIn', icon: BriefcaseBusiness, href: '#' },
-  { label: 'Instagram', icon: Camera, href: '#' },
+  { label: 'Instagram', icon: Instagram, href: '#' },
+  { label: 'LinkedIn', icon: Linkedin, href: '#' },
+  { label: 'WhatsApp', icon: BriefcaseBusiness, href: '#' },
   { label: 'Portfolio', icon: Globe2, href: '#' },
 ];
 
@@ -307,10 +321,10 @@ function RevealSection({ id, className = '', children }) {
 
 function TechCloud() {
   const rings = [
-    { title: 'Frontend', icon: LayoutGrid, items: ['React', 'React Native', 'CSS3'] },
-    { title: 'Backend', icon: Code2, items: ['Laravel', 'Python', 'REST APIs'] },
-    { title: 'AI', icon: Bot, items: ['OpenAI APIs', 'Chatbots', 'Agents'] },
-    { title: 'Design', icon: Palette, items: ['UI/UX', 'Branding', 'Systems'] },
+    { title: 'Social', icon: Share2, items: ['Instagram', 'Reels', 'Growth'] },
+    { title: 'Web & App', icon: Code2, items: ['Websites', 'Apps', 'Stores'] },
+    { title: 'Video', icon: Video, items: ['Reels', 'Promos', 'Motion'] },
+    { title: 'Design', icon: Palette, items: ['Branding', 'Logos', 'Creatives'] },
   ];
 
   return (
@@ -330,7 +344,7 @@ function TechCloud() {
       >
         <div>
           <p className="text-[10px] uppercase tracking-[0.4em] text-white/45">Pooja</p>
-          <p className="mt-2 text-sm text-[#FFD700]">Creative Tech</p>
+          <p className="mt-2 text-sm text-[#FFD700]">Creative</p>
         </div>
       </motion.div>
 
@@ -472,11 +486,11 @@ function ProjectCard({ project, index }) {
           </div>
 
           <div className="relative mt-5 flex flex-wrap gap-3">
-            <MagneticButton href={project.github} variant="secondary">
-              GitHub <GitFork className="h-4 w-4" />
+            <MagneticButton href={project.link} variant="secondary">
+              View Project <Maximize2 className="h-4 w-4" />
             </MagneticButton>
             <MagneticButton href={project.demo}>
-              Live Demo <ExternalLink className="h-4 w-4" />
+              Live Link <ExternalLink className="h-4 w-4" />
             </MagneticButton>
           </div>
         </div>
@@ -542,8 +556,8 @@ function App() {
               PN
             </div>
             <div className="leading-tight">
-              <p className="text-[11px] uppercase tracking-[0.35em] text-white/45">Portfolio</p>
-              <p className="text-sm font-medium text-white">Pooja Nandhini</p>
+              <p className="text-[11px] uppercase tracking-[0.35em] text-white/45">Freelance Creative</p>
+              <p className="text-sm font-medium text-white">Pooja Nandhini S.M</p>
             </div>
           </a>
 
@@ -654,15 +668,15 @@ function App() {
                   className="inline-flex items-center gap-2 rounded-full border border-[#D4AF37]/20 bg-[#D4AF37]/10 px-4 py-2 text-[11px] uppercase tracking-[0.35em] text-[#FFD700]"
                 >
                   <Star className="h-3.5 w-3.5" />
-                  AI-Assisted development · premium design · recruiter-ready
+                  Freelance · social · web · app · video · design · marketing
                 </motion.p>
 
                 <h1 className="mt-6 text-5xl font-semibold tracking-tight text-white sm:text-6xl lg:text-7xl">
-                Full Stack Developer, Ai-assisted Full Stack developer & Graphic designer
+                Freelance Digital Creative &amp; Marketing Partner
                 </h1>
 
                 <p className="mt-6 max-w-2xl text-lg leading-8 text-zinc-300 sm:text-xl">
-                  I am a Full-Stack Developer and AI-Assisted Full-Stack Developer who builds scalable applications, intelligent workflows, and user-focused digital experiences by combining full-stack engineering, AI-assisted development workflows, and design-first thinking. My work focuses on creating performant, accessible, and production-ready solutions with modern technologies.
+                  I&apos;m Pooja Nandhini S.M — a freelance digital creative who helps brands and businesses grow with one connected service: social media marketing, web and app development, video editing, graphic design, and digital marketing. From first idea to final launch, you get strategy, design, and delivery from a single reliable partner.
                 </p>
 
                 <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -752,11 +766,11 @@ function App() {
             <div>
               <SectionHeading
                 eyebrow="About"
-                title="AI-Assisted Full-Stack Developer with a design-led approach."
+                title="A freelance creative who covers every part of your digital presence."
               />
               <GlassCard className="p-6 sm:p-8">
                 <p className="text-base leading-8 text-zinc-300">
-                  I am an AI-Assisted Full-Stack Developer with hands-on experience building scalable web and mobile applications using modern frontend, backend, database, and AI technologies. I specialize in developing efficient, maintainable, and user-centric solutions by combining strong software engineering practices with AI-powered development workflows. With a solid understanding of UI/UX principles and expertise in graphic design and digital branding, I effectively bridge technical execution and creative problem-solving to deliver impactful digital experiences.
+                  I&apos;m Pooja Nandhini S.M, a full-service freelance digital creative helping brands, startups, and small businesses show up better online. I combine six core skills — social media marketing, web development, app development, video editing, graphic design, and digital marketing — so you don&apos;t have to juggle multiple people. From building your website and app to running campaigns, editing videos, and designing your brand, I handle it all with a strategy-first, detail-obsessed approach. The result: a consistent, professional presence that actually drives growth.
                 </p>
               </GlassCard>
             </div>
@@ -798,7 +812,7 @@ function App() {
 
         <RevealSection id="experience">
           <div className="container-shell">
-            <SectionHeading eyebrow="Experience" title="Professional experience and internships." />
+            <SectionHeading eyebrow="Experience" title="Freelance experience across the digital space." />
 
             <div className="grid gap-5">
               {timeline.map((item, index) => (
@@ -841,9 +855,9 @@ function App() {
         <RevealSection id="projects" className="bg-[linear-gradient(180deg,rgba(255,255,255,0.014),rgba(255,255,255,0))]">
           <div className="container-shell">
             <SectionHeading
-              eyebrow="Projects"
-              title="Premium case-study cards with image depth and interactive detail."
-              description="Cards are built to support problem-solution storytelling, measurable outcomes, and polished demo actions."
+              eyebrow="Work"
+              title="Selected work across social, web, apps, video, design, and marketing."
+              description="Each project shows the challenge, the approach, and the results. Add your own live links to any card once your projects are ready."
             />
 
             <div className="grid gap-5 xl:grid-cols-2">
@@ -857,18 +871,18 @@ function App() {
         <RevealSection id="workflow">
           <div className="container-shell">
             <SectionHeading
-              eyebrow="Development Workflow"
-              title="A clean delivery process that reads like a product team, not a hobby page."
-              description="The layout reinforces the strategy behind the work: discover, architect, build, refine, and launch with clarity."
+              eyebrow="How I Work"
+              title="A simple, transparent process from first call to final delivery."
+              description="Whether it's a campaign, a website, an app, or a full brand — every project moves through the same clear stages, so you always know what's happening."
             />
 
             <div className="grid gap-4 lg:grid-cols-5">
               {[
-                ['Discover', 'Clarify objectives, users, constraints, and the metrics that define success.'],
-                ['Architect', 'Plan data flow, interfaces, state ownership, and integration points before building.'],
-                ['Build', 'Develop the app with reusable systems and production-minded implementation.'],
-                ['Refine', 'Tune motion, copy, accessibility, and hierarchy until the experience feels premium.'],
-                ['Launch', 'Finalize QA, performance, and handoff artifacts for a clean release.'],
+                ['Discover', 'Understand your goals, audience, and brand so the work is built around real results.'],
+                ['Plan', 'Map out the strategy, content, timeline, and deliverables before anything is created.'],
+                ['Create', 'Design and build the work — posts, sites, apps, videos, or campaigns — with quality first.'],
+                ['Refine', 'Review together, polish the details, and fine-tune until it feels exactly right.'],
+                ['Launch', 'Deliver, publish, and support — plus track performance and optimize what matters.'],
               ].map(([title, text], index) => (
                 <motion.div
                   key={title}
@@ -889,7 +903,7 @@ function App() {
                     {index === 4 ? (
                       <div className="mt-5 inline-flex items-center gap-2 text-sm text-[#FFD700]">
                         <Star className="h-4 w-4" />
-                        Production ready
+                        Delivered &amp; supported
                       </div>
                     ) : null}
                   </GlassCard>
@@ -903,28 +917,31 @@ function App() {
           <div className="container-shell">
             <SectionHeading
               eyebrow="Services"
-              title="A concise service set aligned with client and recruiter expectations."
-              description="The emphasis stays on execution, product quality, and clear technical value."
+              title="Everything your brand needs online — from one freelancer."
+              description="Pick a single service or let me handle your entire digital presence end to end."
             />
 
-            <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-              {services.map((service, index) => (
-                <motion.div
-                  key={service.title}
-                  initial={{ opacity: 0, y: 18 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.2 }}
-                  transition={{ duration: 0.45, delay: index * 0.04 }}
-                >
-                  <GlassCard className="h-full p-6 transition-transform duration-300 hover:-translate-y-1">
-                    <div className="rounded-2xl border border-[#D4AF37]/20 bg-[#D4AF37]/10 p-3 text-[#FFD700]">
-                      <Workflow className="h-5 w-5" />
-                    </div>
-                    <h3 className="mt-5 text-lg font-semibold text-white">{service.title}</h3>
-                    <p className="mt-4 text-sm leading-7 text-zinc-300">{service.text}</p>
-                  </GlassCard>
-                </motion.div>
-              ))}
+            <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+              {services.map((service, index) => {
+                const Icon = service.icon;
+                return (
+                  <motion.div
+                    key={service.title}
+                    initial={{ opacity: 0, y: 18 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.2 }}
+                    transition={{ duration: 0.45, delay: index * 0.04 }}
+                  >
+                    <GlassCard className="h-full p-6 transition-transform duration-300 hover:-translate-y-1">
+                      <div className="inline-flex rounded-2xl border border-[#D4AF37]/20 bg-[#D4AF37]/10 p-3 text-[#FFD700]">
+                        <Icon className="h-5 w-5" />
+                      </div>
+                      <h3 className="mt-5 text-lg font-semibold text-white">{service.title}</h3>
+                      <p className="mt-4 text-sm leading-7 text-zinc-300">{service.text}</p>
+                    </GlassCard>
+                  </motion.div>
+                );
+              })}
             </div>
           </div>
         </RevealSection>
@@ -933,8 +950,8 @@ function App() {
           <div className="container-shell">
             <SectionHeading
               eyebrow="Certifications"
-              title="A formal credential area that can expand with your real achievements."
-              description="Use this section for verified courses, professional credentials, and training milestones."
+              title="Credentials that back up the work."
+              description="Professional certifications across marketing, ads, and creative tools. Swap in your exact credentials anytime."
             />
 
             <div className="grid gap-4 lg:grid-cols-2">
@@ -961,16 +978,16 @@ function App() {
               <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
                 <div>
                   <p className="section-eyebrow">Contact</p>
-                  <h2 className="section-title">Let’s build something premium and production-ready.</h2>
+                  <h2 className="section-title">Let’s grow your brand together.</h2>
                   <p className="section-copy">
-                    This section is intentionally minimal and recruiter-friendly. Swap in your real links and email address when you’re ready.
+                    Have a project in mind or need a full digital partner? Tell me what you’re working on and I’ll get back to you with a clear plan and next steps.
                   </p>
                   <div className="mt-6 flex flex-wrap gap-3">
-                    <MagneticButton href="mailto:your.email@example.com">
+                    <MagneticButton href="mailto:pixelperfectdesignsindia@gmail.com">
                       Send Email <Mail className="h-4 w-4" />
                     </MagneticButton>
                     <MagneticButton href="#projects" variant="secondary">
-                      Browse Projects <MoveRight className="h-4 w-4" />
+                      See My Work <MoveRight className="h-4 w-4" />
                     </MagneticButton>
                   </div>
                 </div>
@@ -1004,8 +1021,8 @@ function App() {
 
       <footer className="border-t border-white/10 py-8">
         <div className="container-shell flex flex-col gap-3 text-sm text-white/55 sm:flex-row sm:items-center sm:justify-between">
-          <p>Copyright 2026 Pooja Nandhini. Built with React, Framer Motion, and a luxury black-and-gold system.</p>
-          <p className="text-white/40">Designed for premium storytelling, fast scanning, and modern product expectations.</p>
+          <p>© 2026 Pooja Nandhini S.M. Freelance digital creative — social, web, app, video, design &amp; marketing.</p>
+          <p className="text-white/40">Helping brands look great and grow online.</p>
         </div>
       </footer>
     </div>
