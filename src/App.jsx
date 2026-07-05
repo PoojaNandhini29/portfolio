@@ -24,6 +24,10 @@ import {
   Workflow,
   X,
 } from 'lucide-react';
+import greenCircle from './assets/greencircle.jpg';
+import placementPortal from './assets/placementportal.jpg';
+import qrCodeProject from './assets/qrcodeproject.jpg';
+import graphicDesign from './assets/graphicdesign.jpg';
 
 const navLinks = [
   { label: 'About', href: '#about' },
@@ -121,102 +125,73 @@ const services = [
 
 
 const projects = [
-
   {
-    category: 'Social Media Marketing',
-    title: 'Brand Growth Campaign',
+    category: 'Web Application',
+    title: 'GreenCircle – Community Gardening Platform',
     description:
-      'A full social media makeover for a lifestyle brand — content strategy, daily posting, and reels that grew the audience organically.',
+      'GreenCircle is a community-driven web application designed to connect plant lovers, gardeners, and environmentally conscious individuals. The platform enables users to share plants, exchange gardening knowledge, participate in community activities, and promote sustainable living through an intuitive and engaging digital experience.',
     challenge:
-      'The brand had an inconsistent feed and low engagement, with no clear content direction or posting rhythm.',
+      'The community needed a simple way to connect plant enthusiasts and share gardening knowledge in one place.',
     solution:
-      'Built a cohesive visual theme, a monthly content calendar, and a reels-first strategy that boosted reach and follower growth.',
-    metrics: ['3x engagement', '10k+ new followers', 'Consistent daily posts'],
-    stack: ['Instagram', 'Meta Suite', 'Content Strategy', 'Reels'],
-    image: heroPreview,
+      'Built an intuitive platform for sharing plants, exchanging knowledge, and participating in community activities.',
+    metrics: ['Community-driven', 'Sustainable living', 'Engaging UX'],
+    stack: ['React.js', 'Firebase', 'JavaScript', 'HTML', 'CSS'],
+    image: greenCircle,
     accent: 'from-fuchsia-400/20 via-white/8 to-zinc-950',
-    link: '#',
-    demo: '#',
+    link: 'https://green-a050a.web.app/',
+    demo: 'https://green-a050a.web.app/',
+    buttonText: 'View Live Demo',
   },
   {
-    category: 'Web Development',
-    title: 'Business Website & Store',
+    category: 'Full Stack Application',
+    title: 'Placement Portal Application',
     description:
-      'A fast, responsive website with an integrated online store, built to convert visitors into paying customers.',
+      'A full-stack placement management platform developed to simplify campus recruitment processes for students, recruiters, and administrators. The application provides centralized management of job postings, student profiles, applications, and placement activities through a clean and user-friendly interface.',
     challenge:
-      'The client needed a modern, mobile-friendly site that loaded quickly and ranked well on search.',
+      'Campus recruitment needed a centralized workflow for postings, applications, and placement tracking.',
     solution:
-      'Delivered a clean, SEO-ready build with clear calls to action, smooth navigation, and an easy checkout flow.',
-    metrics: ['SEO-optimized', 'Mobile-first', 'Faster load times'],
-    stack: ['React', 'WordPress', 'E-Commerce', 'SEO'],
-    image: heroPreview,
+      'Delivered a clean management interface for students, recruiters, and administrators to coordinate placement tasks.',
+    metrics: ['Centralized workflow', 'Campus recruitment', 'User-friendly'],
+    stack: ['Flask', 'Python', 'SQLite', 'HTML', 'CSS', 'JavaScript', 'Bootstrap'],
+    image: placementPortal,
     accent: 'from-amber-400/25 via-white/8 to-zinc-950',
-    link: '#',
-    demo: '#',
+    link: 'https://placement-portal-application-six.vercel.app/',
+    demo: 'https://placement-portal-application-six.vercel.app/',
+    buttonText: 'View Live Demo',
   },
   {
-    category: 'App Development',
-    title: 'Mobile App Launch',
+    category: 'Automation',
+    title: 'QR Code Attendance Management System',
     description:
-      'A cross-platform mobile app with clean UI/UX, taken from concept and design through to store launch.',
+      'A smart attendance management system that automates attendance using QR code technology. The application enables secure QR code generation and scanning while maintaining accurate digital attendance records with a fast and responsive user interface.',
     challenge:
-      'The idea needed to become an intuitive, reliable app that felt effortless on both Android and iOS.',
+      'Attendance tracking needed to be fast, accurate, and secure without relying on manual entry.',
     solution:
-      'Designed simple user flows and a polished interface, then built and shipped the app to both app stores.',
-    metrics: ['Android & iOS', 'Intuitive UX', 'Store-ready'],
-    stack: ['React Native', 'UI/UX', 'App Store', 'Maintenance'],
-    image: heroPreview,
+      'Created a QR-based workflow for generating, scanning, and recording attendance digitally.',
+    metrics: ['Secure scanning', 'Digital attendance', 'Fast interface'],
+    stack: ['React.js', 'Firebase', 'JavaScript', 'HTML', 'CSS'],
+    image: qrCodeProject,
     accent: 'from-cyan-400/22 via-white/8 to-zinc-950',
-    link: '#',
-    demo: '#',
+    link: 'https://qr-code-eosin-rho.vercel.app/login',
+    demo: 'https://qr-code-eosin-rho.vercel.app/login',
+    buttonText: 'View Live Demo',
   },
   {
-    category: 'Video Editing',
-    title: 'Promo & Reels Package',
+    category: 'Graphic Design',
+    title: 'Graphic Design & Brand Creatives',
     description:
-      'A set of scroll-stopping reels and a promotional video edited to grab attention and drive shares.',
+      'Designed professional branding and marketing creatives for Gloco Products, including product advertisements, promotional posters, social media creatives, and digital marketing materials. The work focuses on strong visual communication, brand consistency, and engaging designs that enhance product visibility.',
     challenge:
-      'Raw footage needed to become punchy, on-brand content that performed well on social platforms.',
+      'The brand needed polished creatives that kept messaging consistent across product and social campaigns.',
     solution:
-      'Edited with tight pacing, motion graphics, captions, and color grading tuned for mobile-first viewing.',
-    metrics: ['High retention', 'Motion graphics', 'Platform-optimized'],
-    stack: ['Premiere Pro', 'After Effects', 'Motion Graphics', 'Color Grade'],
-    image: heroPreview,
-    accent: 'from-emerald-400/22 via-white/8 to-zinc-950',
-    link: '#',
-    demo: '#',
-  },
-  {
-    category: 'Graphic Design & Branding',
-    title: 'Complete Brand Identity',
-    description:
-      'A full brand identity kit — logo, color system, typography, and social creatives with a premium, cohesive feel.',
-    challenge:
-      'The brand needed a memorable identity that stayed consistent across print, social, and packaging.',
-    solution:
-      'Created a reusable design system with a distinctive logo, controlled palette, and ready-to-use templates.',
-    metrics: ['Reusable system', 'Premium assets', 'Brand-consistent'],
-    stack: ['Photoshop', 'Illustrator', 'Branding', 'Social Creatives'],
-    image: heroPreview,
+      'Developed brand-consistent visuals for advertisements, posters, and social media assets.',
+    metrics: ['Brand consistency', 'Marketing creatives', 'Visual communication'],
+    stack: ['Adobe Photoshop', 'Adobe Illustrator', 'Canva', 'Figma'],
+    image: graphicDesign,
     accent: 'from-[#D4AF37]/25 via-white/8 to-stone-950',
-    link: '#',
-    demo: '#',
-  },
-  {
-    category: 'Digital Marketing',
-    title: 'Paid Ads & Lead Funnel',
-    description:
-      'A performance marketing campaign across Meta and Google, built around a lead funnel that delivers measurable ROI.',
-    challenge:
-      'The client was spending on ads with little tracking and unclear returns on the budget.',
-    solution:
-      'Built targeted ad sets, a conversion-focused landing page, and tracking to turn spend into qualified leads.',
-    metrics: ['Lower cost per lead', 'Tracked ROI', 'Higher conversions'],
-    stack: ['Meta Ads', 'Google Ads', 'SEO', 'Funnels'],
-    image: heroPreview,
-    accent: 'from-sky-400/20 via-white/8 to-zinc-950',
-    link: '#',
-    demo: '#',
+    link: null,
+    demo: null,
+    buttonText: 'Creative Design Portfolio',
   },
 ];
 
@@ -477,12 +452,20 @@ function ProjectCard({ project, index }) {
           </div>
 
           <div className="relative mt-5 flex flex-wrap gap-3">
-            <MagneticButton href={project.link} variant="secondary">
-              View Project <Maximize2 className="h-4 w-4" />
-            </MagneticButton>
-            <MagneticButton href={project.demo}>
-              Live Link <ExternalLink className="h-4 w-4" />
-            </MagneticButton>
+            {project.link ? (
+              <MagneticButton href={project.link} target="_blank" rel="noopener noreferrer" variant="secondary">
+                {project.buttonText ?? 'View Live Demo'} <Maximize2 className="h-4 w-4" />
+              </MagneticButton>
+            ) : (
+              <span className="button-secondary cursor-not-allowed select-none opacity-75">
+                {project.buttonText ?? 'Creative Design Portfolio'}
+              </span>
+            )}
+            {project.demo ? (
+              <MagneticButton href={project.demo} target="_blank" rel="noopener noreferrer">
+                Live Link <ExternalLink className="h-4 w-4" />
+              </MagneticButton>
+            ) : null}
           </div>
         </div>
       </GlassCard>
