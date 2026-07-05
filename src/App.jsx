@@ -4,7 +4,6 @@ import { AnimatePresence, motion, useMotionValue, useSpring } from 'framer-motio
 import heroPreview from './assets/hero.png';
 import {
   ArrowUpRight,
-  BadgeCheck,
   BriefcaseBusiness,
   Camera,
   ChevronRight,
@@ -24,7 +23,6 @@ import {
   Video,
   Workflow,
   X,
-  MoveRight,
 } from 'lucide-react';
 
 const navLinks = [
@@ -121,14 +119,9 @@ const services = [
   },
 ];
 
-const certifications = [
-  'Meta Certified Digital Marketing Associate',
-  'Google Ads & Analytics Certified',
-  'Adobe Creative Suite — Design & Video',
-  'Social Media Marketing Specialist',
-];
 
 const projects = [
+
   {
     category: 'Social Media Marketing',
     title: 'Brand Growth Campaign',
@@ -295,7 +288,7 @@ function MagneticButton({ href, className = '', children, variant = 'primary', .
 function CursorGlow({ x, y }) {
   return (
     <motion.div
-      className="pointer-events-none fixed left-0 top-0 z-[60] hidden h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#D4AF37]/10 blur-3xl md:block"
+      className="pointer-events-none fixed left-0 top-0 z-[60] hidden h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#090806]/45 blur-3xl md:block"
       style={{ x, y, scale: 1.08 }}
       aria-hidden="true"
     />
@@ -571,15 +564,6 @@ function App() {
             ))}
           </nav>
 
-          <div className="hidden items-center gap-3 lg:flex">
-            <MagneticButton href="#projects" variant="secondary">
-              View Projects
-            </MagneticButton>
-            <MagneticButton href="#contact">
-              Contact Me
-            </MagneticButton>
-          </div>
-
           <button
             type="button"
             className="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-white lg:hidden"
@@ -676,15 +660,6 @@ function App() {
                 <p className="mt-6 max-w-2xl text-lg leading-8 text-zinc-300 sm:text-xl">
                   I&apos;m Pooja Nandhini S.M — a freelance digital creative who helps brands and businesses grow with one connected service: social media marketing, web and app development, video editing, graphic design, and digital marketing. From first idea to final launch, you get strategy, design, and delivery from a single reliable partner.
                 </p>
-
-                <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                  <MagneticButton href="#projects">
-                    View Projects <ChevronRight className="h-4 w-4" />
-                  </MagneticButton>
-                  <MagneticButton href="#contact" variant="secondary">
-                    Contact Me <Mail className="h-4 w-4" />
-                  </MagneticButton>
-                </div>
 
               </motion.div>
 
@@ -944,32 +919,6 @@ function App() {
           </div>
         </RevealSection>
 
-        <RevealSection id="certifications">
-          <div className="container-shell">
-            <SectionHeading
-              eyebrow="Certifications"
-              title="Credentials that back up the work."
-              description="Professional certifications across marketing, ads, and creative tools. Swap in your exact credentials anytime."
-            />
-
-            <div className="grid gap-4 lg:grid-cols-2">
-              {certifications.map((item) => (
-                <GlassCard key={item} className="p-6">
-                  <div className="flex items-start justify-between gap-4">
-                    <div>
-                      <h3 className="text-xl font-semibold text-white">{item}</h3>
-                      <p className="mt-2 text-sm uppercase tracking-[0.28em] text-[#FFD700]/75">Applied credential</p>
-                    </div>
-                    <div className="rounded-2xl border border-white/10 bg-white/5 p-3 text-[#FFD700]">
-                      <BadgeCheck className="h-5 w-5" />
-                    </div>
-                  </div>
-                </GlassCard>
-              ))}
-            </div>
-          </div>
-        </RevealSection>
-
         <RevealSection id="contact" className="bg-[linear-gradient(180deg,rgba(255,255,255,0.014),rgba(255,255,255,0))]">
           <div className="container-shell">
             <GlassCard className="overflow-hidden p-6 sm:p-8 lg:p-10">
@@ -980,14 +929,6 @@ function App() {
                   <p className="section-copy">
                     Have a project in mind or need a full digital partner? Tell me what you’re working on and I’ll get back to you with a clear plan and next steps.
                   </p>
-                  <div className="mt-6 flex flex-wrap gap-3">
-                    <MagneticButton href="mailto:pixelperfectdesignsindia@gmail.com">
-                      Send Email <Mail className="h-4 w-4" />
-                    </MagneticButton>
-                    <MagneticButton href="#projects" variant="secondary">
-                      See My Work <MoveRight className="h-4 w-4" />
-                    </MagneticButton>
-                  </div>
                 </div>
 
                 <div className="grid gap-3 sm:grid-cols-2 lg:min-w-[24rem]">
