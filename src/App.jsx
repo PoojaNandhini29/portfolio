@@ -360,18 +360,18 @@ function ProjectCard({ project, index }) {
 
   return (
     <motion.article
-      className="group"
+      className="group h-full"
       initial={{ opacity: 0, y: 26, scale: 0.98 }}
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
       viewport={{ once: true, amount: 0.18 }}
       transition={{ duration: 0.55, delay: index * 0.05 }}
     >
-      <GlassCard className="h-full overflow-hidden p-4 sm:p-5">
+      <GlassCard className="project-card-shell h-full p-4 sm:p-5">
         <div
           ref={previewRef}
           onMouseMove={onMove}
           onMouseLeave={onLeave}
-          className="relative overflow-hidden rounded-[30px] border border-white/10 bg-[#090909] p-3"
+          className="project-card-frame relative h-full rounded-[30px] border border-white/10 bg-[#090909] p-3"
         >
           <div className={cn('absolute inset-0 bg-gradient-to-br opacity-95', project.accent)} />
           <div
@@ -383,89 +383,99 @@ function ProjectCard({ project, index }) {
           />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.14),transparent_28%),radial-gradient(circle_at_bottom_left,rgba(212,175,55,0.12),transparent_30%)]" />
 
-          <div className="relative grid gap-3 lg:grid-cols-[1.25fr_0.75fr]">
-            <div className="overflow-hidden rounded-[24px] border border-white/10 bg-black/30">
-              <div className="flex items-center justify-between border-b border-white/10 px-4 py-3">
-                <div className="flex items-center gap-2">
-                  <span className="h-2.5 w-2.5 rounded-full bg-[#FFD700]" />
-                  <span className="h-2.5 w-2.5 rounded-full bg-white/25" />
-                  <span className="h-2.5 w-2.5 rounded-full bg-white/12" />
-                </div>
-                <Maximize2 className="h-4 w-4 text-white/40" />
+          <div className="project-card-preview relative overflow-hidden rounded-[24px] border border-white/10 bg-black/30">
+            <div className="flex items-center justify-between border-b border-white/10 px-4 py-3">
+              <div className="flex items-center gap-2">
+                <span className="h-2.5 w-2.5 rounded-full bg-[#FFD700]" />
+                <span className="h-2.5 w-2.5 rounded-full bg-white/25" />
+                <span className="h-2.5 w-2.5 rounded-full bg-white/12" />
               </div>
-              <div className="relative aspect-[16/10] overflow-hidden">
-                <img
-                  src={project.image}
-                  alt={`${project.title} preview`}
-                  className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/10 to-transparent opacity-70" />
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(212,175,55,0.25),transparent_20%)]" />
-              </div>
+              <Maximize2 className="h-4 w-4 text-white/40" />
             </div>
-
-            <div className="grid gap-3">
-              <div className="rounded-[24px] border border-white/10 bg-black/35 p-4 backdrop-blur-xl">
-                <p className="text-[11px] uppercase tracking-[0.35em] text-[#FFD700]/80">{project.category}</p>
-                <h3 className="mt-3 text-2xl font-semibold tracking-tight text-white">{project.title}</h3>
-                <p className="mt-3 text-sm leading-7 text-zinc-300">{project.description}</p>
-              </div>
-              <div className="rounded-[24px] border border-white/10 bg-black/35 p-4 backdrop-blur-xl">
-              <div className="flex items-center justify-between">
-                <p className="text-xs uppercase tracking-[0.3em] text-white/45">Metrics</p>
-                  <Image className="h-4 w-4 text-[#FFD700]" />
-                </div>
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {project.metrics.map((metric) => (
-                    <span key={metric} className="tag">
-                      {metric}
-                    </span>
-                  ))}
-                </div>
-              </div>
+            <div className="relative aspect-[16/9] overflow-hidden">
+              <img
+                src={project.image}
+                alt={`${project.title} preview`}
+                className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                loading="lazy"
+                decoding="async"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/10 to-transparent opacity-70" />
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(212,175,55,0.25),transparent_20%)]" />
             </div>
           </div>
 
-          <div className="relative mt-4 grid gap-3 lg:grid-cols-2">
-            <div className="rounded-[24px] border border-white/10 bg-black/25 p-4">
+          <div className="project-card-summary relative rounded-[24px] border border-white/10 bg-black/35 p-4 backdrop-blur-xl">
+            <p className="text-[11px] uppercase tracking-[0.35em] text-[#FFD700]/80">{project.category}</p>
+            <h3 className="mt-3 text-2xl font-semibold tracking-tight text-white">{project.title}</h3>
+            <p className="mt-3 text-sm leading-7 text-zinc-300">{project.description}</p>
+          </div>
+
+          <div className="project-card-metrics relative rounded-[24px] border border-white/10 bg-black/35 p-4 backdrop-blur-xl">
+            <div className="flex items-center justify-between">
+              <p className="text-xs uppercase tracking-[0.3em] text-white/45">Metrics</p>
+              <Image className="h-4 w-4 text-[#FFD700]" />
+            </div>
+            <div className="mt-4 flex flex-wrap gap-2">
+              {project.metrics.map((metric) => (
+                <span key={metric} className="tag">
+                  {metric}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <div className="project-card-body relative grid gap-3 lg:grid-cols-2">
+            <div className="project-card-detail rounded-[24px] border border-white/10 bg-black/25 p-4">
               <p className="text-xs uppercase tracking-[0.3em] text-white/45">Problem</p>
               <p className="mt-3 text-sm leading-7 text-zinc-300">{project.challenge}</p>
             </div>
-            <div className="rounded-[24px] border border-white/10 bg-black/25 p-4">
+            <div className="project-card-detail rounded-[24px] border border-white/10 bg-black/25 p-4">
               <p className="text-xs uppercase tracking-[0.3em] text-white/45">Solution</p>
               <p className="mt-3 text-sm leading-7 text-zinc-300">{project.solution}</p>
             </div>
           </div>
 
-          <div className="relative mt-4 flex flex-wrap gap-2">
-            {project.stack.map((tech) => (
-              <motion.span
-                key={tech}
-                whileHover={{ y: -2 }}
-                className="tag shadow-[0_8px_24px_rgba(0,0,0,0.2)]"
-              >
-                {tech}
-              </motion.span>
-            ))}
-          </div>
+          <div className="project-card-footer relative">
+            <div className="flex flex-wrap gap-2">
+              {project.stack.map((tech) => (
+                <motion.span
+                  key={tech}
+                  whileHover={{ y: -2 }}
+                  className="tag shadow-[0_8px_24px_rgba(0,0,0,0.2)]"
+                >
+                  {tech}
+                </motion.span>
+              ))}
+            </div>
 
-          <div className="relative mt-5 flex flex-wrap gap-3">
-            {project.link ? (
-              <MagneticButton href={project.link} target="_blank" rel="noopener noreferrer" variant="secondary">
-                {project.buttonText ?? 'View Live Demo'} <Maximize2 className="h-4 w-4" />
-              </MagneticButton>
-            ) : (
-              <span className="button-secondary cursor-not-allowed select-none opacity-75">
-                {project.buttonText ?? 'Creative Design Portfolio'}
-              </span>
-            )}
-            {project.demo ? (
-              <MagneticButton href={project.demo} target="_blank" rel="noopener noreferrer">
-                Live Link <ExternalLink className="h-4 w-4" />
-              </MagneticButton>
-            ) : null}
+            <div className="mt-5 flex flex-wrap gap-3">
+              {project.link ? (
+                <MagneticButton
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  variant="secondary"
+                  className="project-action-button project-action-button-secondary"
+                >
+                  {project.buttonText ?? 'View Live Demo'} <Maximize2 className="h-4 w-4" />
+                </MagneticButton>
+              ) : (
+                <span className="project-action-button project-action-button-secondary cursor-not-allowed select-none opacity-75">
+                  {project.buttonText ?? 'Creative Design Portfolio'}
+                </span>
+              )}
+              {project.demo ? (
+                <MagneticButton
+                  href={project.demo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="project-action-button project-action-button-primary"
+                >
+                  Live Link <ExternalLink className="h-4 w-4" />
+                </MagneticButton>
+              ) : null}
+            </div>
           </div>
         </div>
       </GlassCard>
@@ -816,7 +826,7 @@ function App() {
               description="Each project shows the challenge, the approach, and the results. Add your own live links to any card once your projects are ready."
             />
 
-            <div className="grid gap-5 xl:grid-cols-2">
+            <div className="grid items-stretch gap-5 xl:grid-cols-2">
               {projects.map((project, index) => (
                 <ProjectCard key={project.title} project={project} index={index} />
               ))}
