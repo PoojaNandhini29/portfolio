@@ -42,36 +42,47 @@ const expertise = [
   {
     title: 'Social Media Marketing',
     icon: Share2,
-    items: ['Instagram', 'Facebook', 'Content Strategy', 'Community Growth', 'Reels & Shorts', 'Analytics'],
+    items: ['Instagram', 'Facebook', 'Content Strategy', 'Reels & Shorts', 'Analytics'],
   },
   {
     title: 'Web Development',
     icon: Code2,
-    items: ['React', 'WordPress', 'Responsive Design', 'Landing Pages', 'E-Commerce', 'SEO-Ready Builds'],
+    items: ['React', 'Shopify', 'Responsive Design', 'Landing Pages', 'E-Commerce', 'SEO-Ready Builds'],
   },
   {
     title: 'App Development',
     icon: Smartphone,
-    items: ['Android', 'iOS', 'React Native', 'UI/UX Flows', 'App Store Launch', 'Maintenance'],
+    items: ['Android', 'React Native', 'UI/UX Flows', 'App Store Launch', 'Maintenance'],
   },
   {
     title: 'Video Editing',
     icon: Video,
-    items: ['Reels & Shorts', 'Promo Videos', 'Motion Graphics', 'Premiere Pro', 'After Effects', 'Color Grading'],
+    items: ['Reels & Shorts', 'Promo Videos', 'Premiere Pro', 'After Effects', 'AI Ad Video'],
   },
   {
     title: 'Graphic Design',
     icon: Palette,
-    items: ['Branding', 'Logo Design', 'Social Creatives', 'Print & Packaging', 'Photoshop', 'Illustrator'],
+    items: ['Branding', 'Logo Design', 'Social Creatives', 'Print & Packaging'],
   },
   {
     title: 'Digital Marketing',
     icon: TrendingUp,
-    items: ['Meta Ads', 'Google Ads', 'SEO', 'Email Campaigns', 'Funnels', 'Performance Tracking'],
+    items: ['Meta Ads', 'Google Ads', 'SEO', 'Email Campaigns', 'Performance Tracking'],
   },
 ];
 
 const aboutExpertise = expertise;
+
+const heroMarquee = ['Social media', 'Websites', 'Mobile apps', 'Video editing', 'Brand design', 'Digital ads'];
+const aboutMarquee = ['Strategy', 'Design', 'Build', 'Launch', 'Optimize', 'Grow'];
+const experienceStats = [
+  '+40% engagement focus',
+  'Mobile-first delivery',
+  'Short-form ready',
+  'ROI-led campaigns',
+  'Consistent visuals',
+  'End-to-end ownership',
+];
 
 const timeline = [
   {
@@ -94,31 +105,37 @@ const services = [
   {
     title: 'Social Media Marketing',
     icon: Share2,
+    proof: '+40% engagement focus',
     text: 'Content planning, posting, and community growth that turns your profiles into a consistent lead source.',
   },
   {
     title: 'Web Development',
     icon: Code2,
+    proof: 'Fast responsive launches',
     text: 'Fast, responsive, SEO-ready websites and stores designed to convert visitors into customers.',
   },
   {
     title: 'App Development',
     icon: Smartphone,
+    proof: 'Clean mobile flows',
     text: 'Android and iOS apps with clean UI/UX, from concept and design through launch and support.',
   },
   {
     title: 'Video Editing',
     icon: Video,
+    proof: 'Scroll-stopping edits',
     text: 'Reels, shorts, promos, and motion graphics edited to grab attention and hold it.',
   },
   {
     title: 'Graphic Design',
     icon: Palette,
+    proof: 'Brand-consistent assets',
     text: 'Logos, brand identities, and social creatives with a polished, professional visual language.',
   },
   {
     title: 'Digital Marketing',
     icon: TrendingUp,
+    proof: 'Measurable ROI focus',
     text: 'Meta and Google ad campaigns, SEO, and funnels built around measurable ROI.',
   },
 ];
@@ -220,6 +237,22 @@ function GlassCard({ className = '', children }) {
   return <div className={cn('glass-card gold-ring', className)}>{children}</div>;
 }
 
+function MarqueeBand({ items, label }) {
+  const marqueeItems = [...items, ...items];
+
+  return (
+    <div className="marquee-container" aria-label={label}>
+      <div className="marquee-track">
+        {marqueeItems.map((item, index) => (
+          <span key={`${item}-${index}`} className="marquee-item">
+            {item}
+          </span>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function MagneticButton({ href, className = '', children, variant = 'primary', ...props }) {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -260,11 +293,45 @@ function MagneticButton({ href, className = '', children, variant = 'primary', .
   );
 }
 
-function CursorGlow({ x, y }) {
+function CursorGlow() {
+  const glowRef = useRef(null);
+
+  useEffect(() => {
+    const glow = glowRef.current;
+    if (!glow) return undefined;
+
+    let frameId;
+    let targetX = window.innerWidth / 2;
+    let targetY = window.innerHeight / 2;
+    let currentX = targetX;
+    let currentY = targetY;
+
+    const render = () => {
+      currentX += (targetX - currentX) * 0.16;
+      currentY += (targetY - currentY) * 0.16;
+      glow.style.transform = `translate3d(${currentX}px, ${currentY}px, 0) translate(-50%, -50%)`;
+      frameId = window.requestAnimationFrame(render);
+    };
+
+    const onMove = (event) => {
+      targetX = event.clientX;
+      targetY = event.clientY;
+      glow.style.opacity = '1';
+    };
+
+    window.addEventListener('pointermove', onMove, { passive: true });
+    frameId = window.requestAnimationFrame(render);
+
+    return () => {
+      window.removeEventListener('pointermove', onMove);
+      window.cancelAnimationFrame(frameId);
+    };
+  }, []);
+
   return (
-    <motion.div
-      className="pointer-events-none fixed left-0 top-0 z-[60] hidden h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#090806]/45 blur-3xl md:block"
-      style={{ x, y, scale: 1.08 }}
+    <div
+      ref={glowRef}
+      className="cursor-glow"
       aria-hidden="true"
     />
   );
@@ -309,7 +376,7 @@ function TechCloud() {
         transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
       >
         <div>
-          <p className="text-[10px] uppercase tracking-[0.4em] text-white/45">Pooja</p>
+          <p className="text-[10px] uppercase tracking-[0.4em] text-white/65">Pooja</p>
           <p className="mt-2 text-sm text-[#FFD700]">Creative</p>
         </div>
       </motion.div>
@@ -334,7 +401,7 @@ function TechCloud() {
               </div>
               <div>
                 <p className="text-sm font-medium text-white">{ring.title}</p>
-                <p className="mt-1 text-[11px] text-white/45">{ring.items.join(' · ')}</p>
+                <p className="mt-1 text-[11px] text-white/65">{ring.items.join(' · ')}</p>
               </div>
             </div>
           </motion.div>
@@ -371,19 +438,19 @@ function ProjectCard({ project, index }) {
           ref={previewRef}
           onMouseMove={onMove}
           onMouseLeave={onLeave}
-          className="project-card-frame relative h-full rounded-[30px] border border-white/10 bg-[#090909] p-3"
+          className="project-card-frame relative h-full rounded-[30px] border border-white/12 bg-white/[0.08] p-3 backdrop-blur-[18px]"
         >
-          <div className={cn('absolute inset-0 bg-gradient-to-br opacity-95', project.accent)} />
+          <div className={cn('pointer-events-none absolute inset-0 z-0 bg-gradient-to-br opacity-95', project.accent)} />
           <div
-            className="absolute inset-0 transition-opacity duration-300"
+            className="pointer-events-none absolute inset-0 z-0 transition-opacity duration-300"
             style={{
               opacity: glow.active ? 1 : 0,
               background: `radial-gradient(circle at ${glow.x}% ${glow.y}%, rgba(255,215,0,0.24), transparent 28%)`,
             }}
           />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.14),transparent_28%),radial-gradient(circle_at_bottom_left,rgba(212,175,55,0.12),transparent_30%)]" />
+          <div className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.14),transparent_28%),radial-gradient(circle_at_bottom_left,rgba(212,175,55,0.12),transparent_30%)]" />
 
-          <div className="project-card-preview relative overflow-hidden rounded-[24px] border border-white/10 bg-black/30">
+          <div className="project-card-preview relative z-10 overflow-hidden rounded-[24px] border border-white/12 bg-white/[0.08] backdrop-blur-[18px]">
             <div className="flex items-center justify-between border-b border-white/10 px-4 py-3">
               <div className="flex items-center gap-2">
                 <span className="h-2.5 w-2.5 rounded-full bg-[#FFD700]" />
@@ -405,15 +472,16 @@ function ProjectCard({ project, index }) {
             </div>
           </div>
 
-          <div className="project-card-summary relative rounded-[24px] border border-white/10 bg-black/35 p-4 backdrop-blur-xl">
+          <div className="project-card-content relative z-10">
+          <div className="project-card-summary rounded-[24px] border border-white/12 bg-white/[0.09] p-4 backdrop-blur-[18px]">
             <p className="text-[11px] uppercase tracking-[0.35em] text-[#FFD700]/80">{project.category}</p>
             <h3 className="mt-3 text-2xl font-semibold tracking-tight text-white">{project.title}</h3>
             <p className="mt-3 text-sm leading-7 text-zinc-300">{project.description}</p>
           </div>
 
-          <div className="project-card-metrics relative rounded-[24px] border border-white/10 bg-black/35 p-4 backdrop-blur-xl">
+          <div className="project-card-metrics rounded-[24px] border border-white/12 bg-white/[0.09] p-4 backdrop-blur-[18px]">
             <div className="flex items-center justify-between">
-              <p className="text-xs uppercase tracking-[0.3em] text-white/45">Metrics</p>
+              <p className="text-xs uppercase tracking-[0.3em] text-white/65">Metrics</p>
               <Image className="h-4 w-4 text-[#FFD700]" />
             </div>
             <div className="mt-4 flex flex-wrap gap-2">
@@ -425,18 +493,19 @@ function ProjectCard({ project, index }) {
             </div>
           </div>
 
-          <div className="project-card-body relative grid gap-3 lg:grid-cols-2">
-            <div className="project-card-detail rounded-[24px] border border-white/10 bg-black/25 p-4">
-              <p className="text-xs uppercase tracking-[0.3em] text-white/45">Problem</p>
+          <div className="project-card-body grid gap-3 lg:grid-cols-2">
+            <div className="project-card-detail rounded-[24px] border border-white/12 bg-white/[0.08] p-4 backdrop-blur-[18px]">
+              <p className="text-xs uppercase tracking-[0.3em] text-white/65">Problem</p>
               <p className="mt-3 text-sm leading-7 text-zinc-300">{project.challenge}</p>
             </div>
-            <div className="project-card-detail rounded-[24px] border border-white/10 bg-black/25 p-4">
-              <p className="text-xs uppercase tracking-[0.3em] text-white/45">Solution</p>
+            <div className="project-card-detail rounded-[24px] border border-white/12 bg-white/[0.08] p-4 backdrop-blur-[18px]">
+              <p className="text-xs uppercase tracking-[0.3em] text-white/65">Solution</p>
               <p className="mt-3 text-sm leading-7 text-zinc-300">{project.solution}</p>
             </div>
           </div>
+          </div>
 
-          <div className="project-card-footer relative">
+          <div className="project-card-footer relative z-10">
             <div className="flex flex-wrap gap-2">
               {project.stack.map((tech) => (
                 <motion.span
@@ -487,28 +556,16 @@ function App() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  const cursorX = useMotionValue(-100);
-  const cursorY = useMotionValue(-100);
-  const smoothX = useSpring(cursorX, { stiffness: 120, damping: 18, mass: 0.4 });
-  const smoothY = useSpring(cursorY, { stiffness: 120, damping: 18, mass: 0.4 });
-
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
-    const onMove = (event) => {
-      if (window.innerWidth < 768) return;
-      cursorX.set(event.clientX);
-      cursorY.set(event.clientY);
-    };
 
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('mousemove', onMove, { passive: true });
 
     return () => {
       window.removeEventListener('scroll', onScroll);
-      window.removeEventListener('mousemove', onMove);
     };
-  }, [cursorX, cursorY]);
+  }, []);
 
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? 'hidden' : '';
@@ -518,8 +575,8 @@ function App() {
   }, [mobileOpen]);
 
   return (
-    <div className="min-h-screen overflow-x-hidden bg-[#0A0A0A] text-white">
-      <CursorGlow x={smoothX} y={smoothY} />
+    <div className="relative isolate min-h-screen overflow-x-hidden bg-[#0A0A0A] text-white">
+      <CursorGlow />
 
       <a
         href="#about"
@@ -530,8 +587,8 @@ function App() {
 
       <header
         className={cn(
-          'fixed inset-x-0 top-0 z-50 transition-all duration-300',
-          scrolled ? 'nav-blur shadow-[0_18px_60px_rgba(0,0,0,0.5)]' : 'bg-transparent',
+          'nav-surface fixed inset-x-0 top-0 z-50 transition-all duration-300',
+          scrolled ? 'nav-blur shadow-[0_18px_60px_rgba(0,0,0,0.5)]' : '',
         )}
       >
         <div className="container-shell flex h-20 items-center justify-between gap-4">
@@ -540,17 +597,17 @@ function App() {
               PN
             </div>
             <div className="leading-tight">
-              <p className="text-[11px] uppercase tracking-[0.35em] text-white/45">Freelance Creative</p>
+              <p className="text-[11px] uppercase tracking-[0.35em] text-white/65">Freelance Creative</p>
               <p className="text-sm font-medium text-white">Pooja Nandhini S.M</p>
             </div>
           </a>
 
-          <nav className="hidden items-center gap-2 lg:flex" aria-label="Primary navigation">
+          <nav className="hidden items-center gap-3 md:flex" aria-label="Primary navigation">
             {navLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
-                className="rounded-full px-4 py-2 text-sm text-white/70 transition hover:bg-white/6 hover:text-white"
+                className="rounded-full px-5 py-2.5 text-sm uppercase tracking-[0.16em] text-white/75 transition hover:bg-white/6 hover:text-white"
               >
                 {link.label}
               </a>
@@ -559,7 +616,7 @@ function App() {
 
           <button
             type="button"
-            className="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-white lg:hidden"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-white md:hidden"
             onClick={() => setMobileOpen((prev) => !prev)}
             aria-label={mobileOpen ? 'Close navigation menu' : 'Open navigation menu'}
             aria-expanded={mobileOpen}
@@ -572,14 +629,14 @@ function App() {
       <AnimatePresence>
         {mobileOpen ? (
           <motion.div
-            className="fixed inset-0 z-40 bg-black/80 backdrop-blur-xl lg:hidden"
+            className="fixed inset-0 z-40 bg-black/70 backdrop-blur-xl md:hidden"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setMobileOpen(false)}
           >
             <motion.div
-              className="absolute right-3 top-24 w-[min(92vw,22rem)] rounded-[28px] border border-white/10 bg-[#101010]/95 p-4 shadow-[0_24px_100px_rgba(0,0,0,0.6)]"
+              className="absolute right-3 top-24 w-[min(92vw,22rem)] rounded-[28px] border border-white/12 bg-white/[0.1] p-4 shadow-[0_24px_100px_rgba(0,0,0,0.6)] backdrop-blur-[18px]"
               initial={{ y: -24, opacity: 0, scale: 0.96 }}
               animate={{ y: 0, opacity: 1, scale: 1 }}
               exit={{ y: -24, opacity: 0, scale: 0.96 }}
@@ -622,7 +679,7 @@ function App() {
         ) : null}
       </AnimatePresence>
 
-      <main id="home" className="pt-20">
+      <main id="home" className="relative z-10 pt-20">
         <section className="relative isolate overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(212,175,55,0.12),transparent_25%),radial-gradient(circle_at_top_right,rgba(255,215,0,0.08),transparent_22%),linear-gradient(180deg,rgba(255,255,255,0.02),transparent_30%)]" />
           <div className="absolute left-[-10%] top-24 h-72 w-72 rounded-full bg-[#D4AF37]/12 blur-[120px]" />
@@ -654,6 +711,7 @@ function App() {
                   I&apos;m Pooja Nandhini S.M — a freelance digital creative who helps brands and businesses grow with one connected service: social media marketing, web and app development, video editing, graphic design, and digital marketing. From first idea to final launch, you get strategy, design, and delivery from a single reliable partner.
                 </p>
 
+                <MarqueeBand items={heroMarquee} label="Core services" />
               </motion.div>
 
               <motion.div
@@ -663,7 +721,7 @@ function App() {
                 className="hero-visual relative"
               >
                 <div className="absolute -inset-6 rounded-[36px] bg-[#D4AF37]/8 blur-[120px]" />
-                <div className="relative min-h-[520px] overflow-hidden rounded-[38px] border border-white/10 bg-[#090909]/90 p-5 shadow-[0_40px_120px_rgba(0,0,0,0.45)]">
+                <div className="relative min-h-[520px] overflow-hidden rounded-[38px] border border-white/12 bg-white/[0.08] p-5 shadow-[0_40px_120px_rgba(0,0,0,0.45)] backdrop-blur-[18px]">
                   <div className="hero-grid absolute inset-0 opacity-35" />
                   <div className="hero-orb hero-orb-one absolute left-12 top-14 h-24 w-24 rounded-full border border-[#D4AF37]/18 bg-[#D4AF37]/8 blur-[1px]" />
                   <div className="hero-orb hero-orb-two absolute right-12 top-24 h-16 w-16 rounded-[28px] border border-white/10 bg-white/4 backdrop-blur-xl" />
@@ -728,12 +786,13 @@ function App() {
         </section>
 
         <RevealSection id="about">
-          <div className="container-shell grid gap-10 lg:grid-cols-[0.92fr_1.08fr]">
-            <div>
+          <div className="container-shell about-section-grid">
+            <div className="min-w-0">
               <SectionHeading
                 eyebrow="About"
                 title="A freelance creative who covers every part of your digital presence."
               />
+              <MarqueeBand items={aboutMarquee} label="Creative process" />
               <GlassCard className="p-6 sm:p-8">
                 <p className="text-base leading-8 text-zinc-300">
                   I&apos;m Pooja Nandhini S.M, a full-service freelance digital creative helping brands, startups, and small businesses show up better online. I combine six core skills — social media marketing, web development, app development, video editing, graphic design, and digital marketing — so you don&apos;t have to juggle multiple people. From building your website and app to running campaigns, editing videos, and designing your brand, I handle it all with a strategy-first, detail-obsessed approach. The result: a consistent, professional presence that actually drives growth.
@@ -741,7 +800,7 @@ function App() {
               </GlassCard>
             </div>
 
-            <div className="grid gap-4 sm:grid-cols-2">
+            <div className="about-pills-container">
               {aboutExpertise.map((item, index) => {
                 const Icon = item.icon;
                 return (
@@ -752,14 +811,14 @@ function App() {
                     viewport={{ once: true, amount: 0.22 }}
                     transition={{ duration: 0.45, delay: index * 0.05 }}
                   >
-                    <GlassCard className="h-full p-6 transition-transform duration-300 hover:-translate-y-1">
-                      <div className="flex items-start gap-4">
-                        <div className="rounded-2xl border border-[#D4AF37]/20 bg-[#D4AF37]/10 p-3 text-[#FFD700]">
+                    <GlassCard className="about-pill-card h-full p-6 transition-transform duration-300 hover:-translate-y-1">
+                      <div className="flex min-w-0 items-start gap-4">
+                        <div className="shrink-0 rounded-2xl border border-[#D4AF37]/20 bg-[#D4AF37]/10 p-3 text-[#FFD700]">
                           <Icon className="h-5 w-5" />
                         </div>
-                        <div>
+                        <div className="min-w-0 flex-1">
                           <h3 className="text-lg font-semibold text-white">{item.title}</h3>
-                          <div className="mt-3 flex flex-wrap gap-2">
+                          <div className="about-feature-list mt-3">
                             {item.items.map((skill) => (
                               <span key={skill} className="tag">
                                 {skill}
@@ -790,23 +849,28 @@ function App() {
                   transition={{ duration: 0.45, delay: index * 0.06 }}
                 >
                   <GlassCard className="p-6 sm:p-8">
-                    <div className="flex flex-col gap-2 border-b border-white/10 pb-5 sm:flex-row sm:items-start sm:justify-between">
+                    <div className="flex flex-col gap-4 border-b border-white/10 pb-5 sm:flex-row sm:items-start sm:justify-between">
                       <div>
                         <p className="text-[11px] uppercase tracking-[0.35em] text-[#FFD700]/80">{item.period}</p>
                         <h3 className="mt-2 text-2xl font-semibold text-white">{item.title}</h3>
-                        <p className="mt-2 text-sm uppercase tracking-[0.28em] text-white/45">{item.role}</p>
+                        <p className="mt-2 text-sm uppercase tracking-[0.28em] text-white/65">{item.role}</p>
+                      </div>
+                      <div className="impact-stat sm:text-right">
+                        <TrendingUp className="h-4 w-4" />
+                        <span>6-service delivery system</span>
                       </div>
                     </div>
 
                     <p className="mt-5 text-base leading-8 text-zinc-300">{item.text}</p>
 
                     <div className="mt-6">
-                      <p className="text-xs uppercase tracking-[0.35em] text-white/45">Key Responsibilities</p>
+                      <p className="text-xs uppercase tracking-[0.35em] text-white/65">Key Responsibilities</p>
                       <ul className="mt-4 space-y-3">
-                        {item.responsibilities.map((responsibility) => (
-                          <li key={responsibility} className="flex gap-3 text-sm leading-7 text-zinc-300">
-                            <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-[#FFD700]" />
-                            <span>{responsibility}</span>
+                        {item.responsibilities.map((responsibility, responsibilityIndex) => (
+                          <li key={responsibility} className="experience-proof-item">
+                            <span className="experience-proof-dot" />
+                            <span className="flex-1">{responsibility}</span>
+                            <span className="impact-pill">{experienceStats[responsibilityIndex]}</span>
                           </li>
                         ))}
                       </ul>
@@ -898,12 +962,16 @@ function App() {
                     viewport={{ once: true, amount: 0.2 }}
                     transition={{ duration: 0.45, delay: index * 0.04 }}
                   >
-                    <GlassCard className="h-full p-6 transition-transform duration-300 hover:-translate-y-1">
-                      <div className="inline-flex rounded-2xl border border-[#D4AF37]/20 bg-[#D4AF37]/10 p-3 text-[#FFD700]">
+                    <GlassCard className="service-card h-full p-6">
+                      <div className="service-icon">
                         <Icon className="h-5 w-5" />
                       </div>
                       <h3 className="mt-5 text-lg font-semibold text-white">{service.title}</h3>
                       <p className="mt-4 text-sm leading-7 text-zinc-300">{service.text}</p>
+                      <div className="impact-stat mt-5">
+                        <TrendingUp className="h-4 w-4" />
+                        <span>{service.proof}</span>
+                      </div>
                     </GlassCard>
                   </motion.div>
                 );
@@ -931,7 +999,7 @@ function App() {
                       <a
                         key={social.label}
                         href={social.href}
-                        className="group flex items-center justify-between rounded-[22px] border border-white/10 bg-black/25 px-4 py-4 transition hover:-translate-y-1 hover:border-[#D4AF37]/20 hover:bg-white/8"
+                        className="group flex items-center justify-between rounded-[22px] border border-white/12 bg-white/[0.08] px-4 py-4 shadow-[0_18px_50px_rgba(0,0,0,0.22)] backdrop-blur-[18px] transition duration-300 hover:-translate-y-1 hover:scale-[1.03] hover:border-[#D4AF37]/30 hover:bg-white/[0.12] hover:shadow-[0_20px_60px_rgba(212,175,55,0.12)]"
                         aria-label={social.label}
                       >
                         <div className="flex items-center gap-3">
@@ -951,10 +1019,10 @@ function App() {
         </RevealSection>
       </main>
 
-      <footer className="border-t border-white/10 py-8">
+      <footer className="footer-glass relative z-10 border-t border-white/10 py-8">
         <div className="container-shell flex flex-col gap-3 text-sm text-white/55 sm:flex-row sm:items-center sm:justify-between">
           <p>© 2026 Pooja Nandhini S.M. Freelance digital creative — social, web, app, video, design &amp; marketing.</p>
-          <p className="text-white/40">Helping brands look great and grow online.</p>
+          <p className="text-white/70">Helping brands look great and grow online.</p>
         </div>
       </footer>
     </div>
