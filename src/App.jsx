@@ -2,6 +2,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion, useMotionValue, useSpring } from 'framer-motion';
 import heroPreview from './assets/hero.png';
+import introVideo from './assets/intro.mp4';
 import {
   ArrowUpRight,
   BriefcaseBusiness,
@@ -118,13 +119,13 @@ const services = [
     title: 'App Development',
     icon: Smartphone,
     proof: 'Clean mobile flows',
-    text: 'Android and iOS apps with clean UI/UX, from concept and design through launch and support.',
+    text: 'Android apps with clean UI/UX, from concept and design through launch and support.',
   },
   {
     title: 'Video Editing',
     icon: Video,
     proof: 'Scroll-stopping edits',
-    text: 'Reels, shorts, promos, and motion graphics edited to grab attention and hold it.',
+    text: 'Reels, shorts, and promos edited to grab attention and hold it.',
   },
   {
     title: 'Graphic Design',
@@ -411,6 +412,92 @@ function TechCloud() {
   );
 }
 
+function HeroVideo() {
+  const videoRef = useRef(null);
+  const containerRef = useRef(null);
+  const [isMuted, setIsMuted] = useState(false);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    const container = containerRef.current;
+    if (!video || !container) return undefined;
+
+    let isVisible = false;
+
+    const handlePlayPause = () => {
+      if (isVisible && !document.hidden) {
+        video.play().catch(() => {});
+      } else {
+        video.pause();
+      }
+    };
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isVisible = entry.isIntersecting;
+        handlePlayPause();
+      },
+      { threshold: 0.15 },
+    );
+
+    observer.observe(container);
+    document.addEventListener('visibilitychange', handlePlayPause);
+
+    return () => {
+      observer.disconnect();
+      document.removeEventListener('visibilitychange', handlePlayPause);
+      if (video) {
+        video.pause(); // Just pause, don't remove src to keep React in sync
+      }
+    };
+  }, []);
+
+  const toggleMute = () => {
+    const video = videoRef.current;
+    if (!video) return;
+    video.muted = !video.muted;
+    setIsMuted(video.muted);
+  };
+
+  return (
+    <motion.div
+      ref={containerRef}
+      initial={{ opacity: 0, y: 24, scale: 0.985 }}
+      animate={{ opacity: 1, y: 0, scale: 1 }}
+      transition={{ duration: 0.9, delay: 0.06, ease: [0.22, 1, 0.36, 1] }}
+      className="hero-visual relative lg:pr-8"
+    >
+      <div className="absolute -inset-6 rounded-[36px] bg-[#D4AF37]/8 blur-[120px]" />
+      <div className="hero-video-container relative overflow-hidden rounded-[38px] border border-white/12 bg-white/[0.08] shadow-[0_40px_120px_rgba(0,0,0,0.45)] backdrop-blur-[18px]">
+        <video
+          ref={videoRef}
+          src={introVideo}
+          poster={heroPreview}
+          autoPlay
+          loop
+          playsInline
+          preload="metadata"
+          className="hero-video"
+        />
+        <div className="pointer-events-none absolute inset-0 rounded-[38px] border border-white/8" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+        <button
+          type="button"
+          onClick={toggleMute}
+          className="hero-video-mute-btn"
+          aria-label={isMuted ? 'Unmute video' : 'Mute video'}
+        >
+          {isMuted ? (
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+          ) : (
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+          )}
+        </button>
+      </div>
+    </motion.div>
+  );
+}
+
 function ProjectCard({ project, index }) {
   const previewRef = useRef(null);
   const [glow, setGlow] = useState({ x: 50, y: 40, active: false });
@@ -679,19 +766,19 @@ function App() {
         ) : null}
       </AnimatePresence>
 
-      <main id="home" className="relative z-10 pt-20">
+      <main id="home" className="relative z-10 pt-20 lg:pt-28">
         <section className="relative isolate overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(212,175,55,0.12),transparent_25%),radial-gradient(circle_at_top_right,rgba(255,215,0,0.08),transparent_22%),linear-gradient(180deg,rgba(255,255,255,0.02),transparent_30%)]" />
           <div className="absolute left-[-10%] top-24 h-72 w-72 rounded-full bg-[#D4AF37]/12 blur-[120px]" />
           <div className="absolute right-[-8%] top-40 h-80 w-80 rounded-full bg-white/6 blur-[140px]" />
 
-          <div className="container-shell section-pad relative">
-            <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
+          <div className="mx-auto w-full max-w-[96rem] px-5 sm:px-6 lg:px-8 section-pad relative">
+            <div className="grid items-center gap-8 lg:gap-12 md:grid-cols-2 lg:grid-cols-2">
               <motion.div
                 initial={{ opacity: 0, y: 28 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, ease: 'easeOut' }}
-                className="max-w-3xl hero-copy-layer"
+                className="max-w-3xl hero-copy-layer min-w-0"
               >
                 <motion.p
                   initial={{ opacity: 0, y: 12 }}
@@ -704,7 +791,8 @@ function App() {
                 </motion.p>
 
                 <h1 className="mt-6 text-5xl font-semibold tracking-tight text-white sm:text-6xl lg:text-7xl">
-                Freelance Digital Creative &amp; Marketing Partner
+                  Elevating Brands Through Design,<br className="hidden md:block" />
+                  Strategy &amp; Innovation
                 </h1>
 
                 <p className="mt-6 max-w-2xl text-lg leading-8 text-zinc-300 sm:text-xl">
@@ -714,56 +802,7 @@ function App() {
                 <MarqueeBand items={heroMarquee} label="Core services" />
               </motion.div>
 
-              <motion.div
-                initial={{ opacity: 0, y: 24, scale: 0.985 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                transition={{ duration: 0.9, delay: 0.06, ease: [0.22, 1, 0.36, 1] }}
-                className="hero-visual relative"
-              >
-                <div className="absolute -inset-6 rounded-[36px] bg-[#D4AF37]/8 blur-[120px]" />
-                <div className="relative min-h-[520px] overflow-hidden rounded-[38px] border border-white/12 bg-white/[0.08] p-5 shadow-[0_40px_120px_rgba(0,0,0,0.45)] backdrop-blur-[18px]">
-                  <div className="hero-grid absolute inset-0 opacity-35" />
-                  <div className="hero-orb hero-orb-one absolute left-12 top-14 h-24 w-24 rounded-full border border-[#D4AF37]/18 bg-[#D4AF37]/8 blur-[1px]" />
-                  <div className="hero-orb hero-orb-two absolute right-12 top-24 h-16 w-16 rounded-[28px] border border-white/10 bg-white/4 backdrop-blur-xl" />
-                  <div className="hero-sheen absolute inset-0" />
-
-                  <div className="relative z-10 flex h-full min-h-[520px] items-center justify-center">
-                    <div className="hero-core relative h-72 w-72 sm:h-80 sm:w-80">
-                      <motion.div
-                        className="absolute inset-0 rounded-full border border-white/10"
-                        animate={{ rotate: 360 }}
-                        transition={{ duration: 34, repeat: Infinity, ease: 'linear' }}
-                      />
-                      <motion.div
-                        className="absolute inset-8 rounded-full border border-[#D4AF37]/20"
-                        animate={{ rotate: -360 }}
-                        transition={{ duration: 28, repeat: Infinity, ease: 'linear' }}
-                      />
-                      <motion.div
-                        className="absolute inset-16 rounded-full bg-gradient-to-br from-[#D4AF37]/20 via-white/5 to-transparent blur-2xl"
-                        animate={{ scale: [0.98, 1.02, 0.98], opacity: [0.5, 0.72, 0.5] }}
-                        transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
-                      />
-
-                      <div className="absolute left-1/2 top-1/2 h-44 w-44 -translate-x-1/2 -translate-y-1/2">
-                        <motion.div
-                          className="absolute inset-0 rounded-[42px] border border-white/10 bg-white/6 backdrop-blur-2xl"
-                          animate={{ rotate: [0, 2, 0], y: [0, -3, 0] }}
-                          transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
-                        />
-                        <motion.div
-                          className="absolute inset-4 rounded-[34px] border border-[#D4AF37]/20 bg-gradient-to-br from-[#D4AF37]/15 via-white/6 to-transparent"
-                          animate={{ rotate: [0, -2, 0] }}
-                          transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }}
-                        />
-                        <div className="absolute inset-0 flex items-center justify-center">
-                          <div className="hero-core-mark" />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
+              <HeroVideo />
             </div>
 
             <div className="mt-8 flex items-center justify-center">
