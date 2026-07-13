@@ -1,8 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion, useMotionValue, useSpring } from 'framer-motion';
-import heroPreview from './assets/hero.png';
-import introVideo from './assets/intro.mp4';
+import heroImage from './assets/poojanandhini.jpg';
 import {
   ArrowUpRight,
   BriefcaseBusiness,
@@ -214,10 +213,10 @@ const projects = [
 ];
 
 const socials = [
-  { label: 'Instagram', icon: Camera, href: '#' },
-  { label: 'LinkedIn', icon: BriefcaseBusiness, href: '#' },
-  { label: 'WhatsApp', icon: Share2, href: '#' },
-  { label: 'Portfolio', icon: Globe2, href: '#' },
+  { label: 'Instagram', icon: Camera, href: 'https://www.instagram.com/elevate_by_pooja?utm_source=qr&igsh=MTV5aHczZHNoMjNxOA==' },
+  { label: 'LinkedIn', icon: BriefcaseBusiness, href: 'https://www.linkedin.com/in/pooja-nandhini-97bab1351' },
+  { label: 'WhatsApp', icon: Share2, href: 'https://wa.me/917358968480' },
+  { label: 'Email', icon: Mail, href: 'mailto:poojanandhini29@gmail.com' },
 ];
 
 function cn(...classes) {
@@ -413,51 +412,7 @@ function TechCloud() {
 }
 
 function HeroVideo() {
-  const videoRef = useRef(null);
   const containerRef = useRef(null);
-  const [isMuted, setIsMuted] = useState(false);
-
-  useEffect(() => {
-    const video = videoRef.current;
-    const container = containerRef.current;
-    if (!video || !container) return undefined;
-
-    let isVisible = false;
-
-    const handlePlayPause = () => {
-      if (isVisible && !document.hidden) {
-        video.play().catch(() => {});
-      } else {
-        video.pause();
-      }
-    };
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        isVisible = entry.isIntersecting;
-        handlePlayPause();
-      },
-      { threshold: 0.15 },
-    );
-
-    observer.observe(container);
-    document.addEventListener('visibilitychange', handlePlayPause);
-
-    return () => {
-      observer.disconnect();
-      document.removeEventListener('visibilitychange', handlePlayPause);
-      if (video) {
-        video.pause(); // Just pause, don't remove src to keep React in sync
-      }
-    };
-  }, []);
-
-  const toggleMute = () => {
-    const video = videoRef.current;
-    if (!video) return;
-    video.muted = !video.muted;
-    setIsMuted(video.muted);
-  };
 
   return (
     <motion.div
@@ -469,30 +424,13 @@ function HeroVideo() {
     >
       <div className="absolute -inset-6 rounded-[36px] bg-[#D4AF37]/8 blur-[120px]" />
       <div className="hero-video-container relative overflow-hidden rounded-[38px] border border-white/12 bg-white/[0.08] shadow-[0_40px_120px_rgba(0,0,0,0.45)] backdrop-blur-[18px]">
-        <video
-          ref={videoRef}
-          src={introVideo}
-          poster={heroPreview}
-          autoPlay
-          loop
-          playsInline
-          preload="metadata"
+        <img
+          src={heroImage}
+          alt="Pooja Nandhini Portrait"
           className="hero-video"
         />
         <div className="pointer-events-none absolute inset-0 rounded-[38px] border border-white/8" />
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-        <button
-          type="button"
-          onClick={toggleMute}
-          className="hero-video-mute-btn"
-          aria-label={isMuted ? 'Unmute video' : 'Mute video'}
-        >
-          {isMuted ? (
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
-          ) : (
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
-          )}
-        </button>
       </div>
     </motion.div>
   );

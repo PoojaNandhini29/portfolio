@@ -603,7 +603,7 @@
   .hero-video-container {
     position: relative;
     width: 100%;
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 1 / 1;
   }
 
   .hero-video {
@@ -611,18 +611,19 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
     border-radius: 38px;
   }
 
   @media (max-width: 1023px) {
     .hero-video-container {
-      aspect-ratio: 16 / 9;
+      aspect-ratio: 1 / 1;
     }
   }
 
   @media (max-width: 639px) {
     .hero-video-container {
-      aspect-ratio: 16 / 9;
+      aspect-ratio: 1 / 1;
     }
 
     .hero-video {
