@@ -949,7 +949,7 @@ function App() {
               {[
                 ['Discover', 'Understand your goals, audience, and brand so the work is built around real results.'],
                 ['Plan', 'Map out the strategy, content, timeline, and deliverables before anything is created.'],
-                ['Create', 'Design and build the work — posts, sites, apps, videos, or campaigns — with quality first.'],
+                ['Create', 'Design and build the work  posts, sites, apps, videos, or campaigns — with quality first.'],
                 ['Refine', 'Review together, polish the details, and fine-tune until it feels exactly right.'],
                 ['Launch', 'Deliver, publish, and support — plus track performance and optimize what matters.'],
               ].map(([title, text], index) => (
@@ -986,7 +986,7 @@ function App() {
           <div className="container-shell">
             <SectionHeading
               eyebrow="Services"
-              title="Everything your brand needs online — from one freelancer."
+              title="Everything your brand needs online  from one freelancer."
               description="Pick a single service or let me handle your entire digital presence end to end."
             />
 
