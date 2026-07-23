@@ -703,12 +703,8 @@
 }
 
 @media (max-width: 1023px) {
-  .about-section-grid,
-  .about-pills-container {
-    grid-template-columns: 1fr;
-  }
-
   .about-section-grid {
+    grid-template-columns: 1fr;
     gap: 2rem;
   }
 
@@ -729,7 +725,8 @@
 @media (max-width: 767px) {
   .marquee-container {
     height: 40px;
-    margin-bottom: 48px;
+    margin-top: 14px;
+    margin-bottom: 26px;
   }
 
   .marquee-track {
@@ -739,5 +736,78 @@
 
   .impact-pill {
     margin-left: 1.25rem;
+  }
+}
+
+/* ── About pills: 2-col on sm+ tablet, 1-col on mobile ──────────────── */
+@media (max-width: 639px) {
+  html {
+    scroll-padding-top: 70px;
+  }
+
+  .about-pills-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Touch / hover-none: disable GPU-heavy hover scale transforms ────── */
+@media (hover: none) {
+  .glass-card:hover,
+  .service-card:hover {
+    transform: none;
+    border-color: var(--glass-border);
+    background:
+      linear-gradient(145deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.015)),
+      var(--glass-bg);
+    box-shadow: var(--glass-shadow);
+  }
+
+  .card-hover:hover {
+    transform: none;
+    border-color: var(--border);
+    box-shadow: none;
+  }
+
+  .btn-primary:hover,
+  .btn-ghost:hover {
+    transform: none;
+  }
+}
+
+/* ── Touch-primary devices: hide cursor glow (saves battery + GPU) ───── */
+@media (hover: none) and (pointer: coarse) {
+  .cursor-glow {
+    display: none;
+  }
+}
+
+/* ── xs / small phones (≤ 479px) ────────────────────────────────────── */
+@media (max-width: 479px) {
+  .section-title {
+    font-size: clamp(1.375rem, 6.2vw, 1.875rem);
+  }
+
+  .section-copy {
+    margin-top: 0.75rem;
+    font-size: 0.875rem;
+  }
+
+  .marquee-container {
+    margin-top: 10px;
+    margin-bottom: 18px;
+  }
+
+  .project-action-button {
+    padding-left: 0.875rem;
+    padding-right: 0.875rem;
+    font-size: 0.78rem;
+  }
+}
+
+/* ── Very small phones (≤ 359px) ────────────────────────────────────── */
+@media (max-width: 359px) {
+  .container-shell {
+    padding-left: 0.875rem;
+    padding-right: 0.875rem;
   }
 }

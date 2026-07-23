@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { useEffect, useRef, useState } from 'react';
-import { AnimatePresence, motion, useMotionValue, useSpring } from 'framer-motion';
+import { AnimatePresence, motion, useMotionValue, useReducedMotion, useSpring } from 'framer-motion';
 import heroImage from './assets/poojanandhini.jpg';
 import {
   ArrowUpRight,
@@ -260,6 +260,7 @@ function MagneticButton({ href, className = '', children, variant = 'primary', .
   const springY = useSpring(y, { stiffness: 260, damping: 20, mass: 0.2 });
 
   const onMove = (event) => {
+    if (window.matchMedia('(hover: none)').matches) return;
     const rect = event.currentTarget.getBoundingClientRect();
     const offsetX = event.clientX - (rect.left + rect.width / 2);
     const offsetY = event.clientY - (rect.top + rect.height / 2);
@@ -297,6 +298,7 @@ function CursorGlow() {
   const glowRef = useRef(null);
 
   useEffect(() => {
+    if (window.matchMedia('(hover: none) and (pointer: coarse)').matches) return undefined;
     const glow = glowRef.current;
     if (!glow) return undefined;
 
@@ -338,12 +340,13 @@ function CursorGlow() {
 }
 
 function RevealSection({ id, className = '', children }) {
+  const shouldReduceMotion = useReducedMotion();
   return (
     <motion.section
       id={id}
       className={cn('section-pad', className)}
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={shouldReduceMotion ? false : { opacity: 0, y: 30 }}
+      whileInView={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.16 }}
       transition={{ duration: 0.7, ease: 'easeOut' }}
     >
@@ -428,6 +431,9 @@ function HeroVideo() {
           src={heroImage}
           alt="Pooja Nandhini Portrait"
           className="hero-video"
+          fetchPriority="high"
+          loading="eager"
+          decoding="async"
         />
         <div className="pointer-events-none absolute inset-0 rounded-[38px] border border-white/8" />
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
@@ -500,7 +506,7 @@ function ProjectCard({ project, index }) {
           <div className="project-card-content relative z-10">
           <div className="project-card-summary rounded-[24px] border border-white/12 bg-white/[0.09] p-4 backdrop-blur-[18px]">
             <p className="text-[11px] uppercase tracking-[0.35em] text-[#FFD700]/80">{project.category}</p>
-            <h3 className="mt-3 text-2xl font-semibold tracking-tight text-white">{project.title}</h3>
+            <h3 className="mt-3 text-lg font-semibold tracking-tight text-white sm:text-2xl">{project.title}</h3>
             <p className="mt-3 text-sm leading-7 text-zinc-300">{project.description}</p>
           </div>
 
@@ -616,14 +622,14 @@ function App() {
           scrolled ? 'nav-blur shadow-[0_18px_60px_rgba(0,0,0,0.5)]' : '',
         )}
       >
-        <div className="container-shell flex h-20 items-center justify-between gap-4">
-          <a href="#home" className="group flex items-center gap-3" aria-label="Go to home">
-            <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-[#D4AF37]/25 bg-[#D4AF37]/10 text-sm font-semibold text-[#FFD700] transition group-hover:-translate-y-0.5">
+        <div className="container-shell flex h-20 items-center justify-between gap-3 sm:gap-4">
+          <a href="#home" className="group flex min-w-0 items-center gap-2 sm:gap-3" aria-label="Go to home">
+            <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-2xl border border-[#D4AF37]/25 bg-[#D4AF37]/10 text-sm font-semibold text-[#FFD700] transition group-hover:-translate-y-0.5 sm:h-11 sm:w-11">
               PN
             </div>
-            <div className="leading-tight">
-              <p className="text-[11px] uppercase tracking-[0.35em] text-white/65">Freelance Creative</p>
-              <p className="text-sm font-medium text-white">Pooja Nandhini S.M</p>
+            <div className="min-w-0 leading-tight">
+              <p className="truncate text-[10px] uppercase tracking-[0.2em] text-white/65 sm:text-[11px] sm:tracking-[0.35em]">Freelance Creative</p>
+              <p className="truncate text-xs font-medium text-white sm:text-sm">Pooja Nandhini S.M</p>
             </div>
           </a>
 
@@ -722,18 +728,19 @@ function App() {
                   initial={{ opacity: 0, y: 12 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.45 }}
-                  className="inline-flex items-center gap-2 rounded-full border border-[#D4AF37]/20 bg-[#D4AF37]/10 px-4 py-2 text-[11px] uppercase tracking-[0.35em] text-[#FFD700]"
+                  className="inline-flex max-w-full items-center gap-1.5 rounded-full border border-[#D4AF37]/20 bg-[#D4AF37]/10 px-3 py-1.5 text-[9px] uppercase tracking-[0.15em] text-[#FFD700] sm:gap-2 sm:px-4 sm:py-2 sm:text-[11px] sm:tracking-[0.35em]"
                 >
-                  <Star className="h-3.5 w-3.5" />
-                  Freelance · social · web · app · video · design · marketing
+                  <Star className="h-3 w-3 flex-shrink-0 sm:h-3.5 sm:w-3.5" />
+                  <span className="sm:hidden">Freelance Digital Creative</span>
+                  <span className="hidden sm:inline">Freelance · social · web · app · video · design · marketing</span>
                 </motion.p>
 
-                <h1 className="mt-6 text-5xl font-semibold tracking-tight text-white sm:text-6xl lg:text-7xl">
-                  Elevating Brands Through Design,<br className="hidden md:block" />
-                  Strategy &amp; Innovation
+                <h1 className="mt-4 text-[clamp(1.875rem,7vw,3rem)] font-semibold tracking-tight text-white sm:mt-6 sm:text-5xl lg:text-7xl">
+                  <span className="sm:hidden">Elevating Brands Through Design &amp; Innovation</span>
+                  <span className="hidden sm:inline">Elevating Brands Through Design,<br className="hidden md:block" />Strategy &amp; Innovation</span>
                 </h1>
 
-                <p className="mt-6 max-w-2xl text-lg leading-8 text-zinc-300 sm:text-xl">
+                <p className="mt-4 max-w-2xl text-base leading-7 text-zinc-300 sm:mt-6 sm:text-lg sm:leading-8">
                   I&apos;m Pooja Nandhini S.M — a freelance digital creative who helps brands and businesses grow with one connected service: social media marketing, web and app development, video editing, graphic design, and digital marketing. From first idea to final launch, you get strategy, design, and delivery from a single reliable partner.
                 </p>
 
@@ -883,7 +890,7 @@ function App() {
               description="Whether it's a campaign, a website, an app, or a full brand — every project moves through the same clear stages, so you always know what's happening."
             />
 
-            <div className="grid gap-4 lg:grid-cols-5">
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
               {[
                 ['Discover', 'Understand your goals, audience, and brand so the work is built around real results.'],
                 ['Plan', 'Map out the strategy, content, timeline, and deliverables before anything is created.'],
@@ -976,6 +983,8 @@ function App() {
                       <a
                         key={social.label}
                         href={social.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="group flex items-center justify-between rounded-[22px] border border-white/12 bg-white/[0.08] px-4 py-4 shadow-[0_18px_50px_rgba(0,0,0,0.22)] backdrop-blur-[18px] transition duration-300 hover:-translate-y-1 hover:scale-[1.03] hover:border-[#D4AF37]/30 hover:bg-white/[0.12] hover:shadow-[0_20px_60px_rgba(212,175,55,0.12)]"
                         aria-label={social.label}
                       >
@@ -997,7 +1006,7 @@ function App() {
       </main>
 
       <footer className="footer-glass relative z-10 border-t border-white/10 py-8">
-        <div className="container-shell flex flex-col gap-3 text-sm text-white/55 sm:flex-row sm:items-center sm:justify-between">
+        <div className="container-shell flex flex-col gap-2 text-xs text-white/55 sm:flex-row sm:items-center sm:justify-between sm:gap-3 sm:text-sm">
           <p>© 2026 Pooja Nandhini S.M. Freelance digital creative — social, web, app, video, design &amp; marketing.</p>
           <p className="text-white/70">Helping brands look great and grow online.</p>
         </div>
