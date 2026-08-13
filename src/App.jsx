@@ -832,12 +832,12 @@ function App() {
                   viewport={{ once: true, amount: 0.2 }}
                   transition={{ duration: 0.45, delay: index * 0.06 }}
                 >
-                  <GlassCard className="p-6 sm:p-8">
-                    <div className="flex flex-col gap-4 border-b border-white/10 pb-5 sm:flex-row sm:items-start sm:justify-between">
-                      <div>
+                  <GlassCard className="experience-card p-5 sm:p-8">
+                    <div className="experience-card-header flex flex-col gap-4 border-b border-white/10 pb-5 sm:flex-row sm:items-start sm:justify-between">
+                      <div className="min-w-0">
                         <p className="text-[11px] uppercase tracking-[0.35em] text-[#FFD700]/80">{item.period}</p>
-                        <h3 className="mt-2 text-2xl font-semibold text-white">{item.title}</h3>
-                        <p className="mt-2 text-sm uppercase tracking-[0.28em] text-white/65">{item.role}</p>
+                        <h3 className="mt-2 text-[clamp(1.35rem,6vw,1.5rem)] font-semibold text-white">{item.title}</h3>
+                        <p className="experience-role mt-2 text-sm uppercase tracking-[0.28em] text-white/65">{item.role}</p>
                       </div>
                       <div className="impact-stat sm:text-right">
                         <TrendingUp className="h-4 w-4" />
@@ -847,13 +847,13 @@ function App() {
 
                     <p className="mt-5 text-base leading-8 text-zinc-300">{item.text}</p>
 
-                    <div className="mt-6">
+                    <div className="mt-6 min-w-0">
                       <p className="text-xs uppercase tracking-[0.35em] text-white/65">Key Responsibilities</p>
-                      <ul className="mt-4 space-y-3">
+                      <ul className="experience-proof-list mt-4 space-y-3">
                         {item.responsibilities.map((responsibility, responsibilityIndex) => (
                           <li key={responsibility} className="experience-proof-item">
                             <span className="experience-proof-dot" />
-                            <span className="flex-1">{responsibility}</span>
+                            <span className="experience-proof-text flex-1">{responsibility}</span>
                             <span className="impact-pill">{experienceStats[responsibilityIndex]}</span>
                           </li>
                         ))}

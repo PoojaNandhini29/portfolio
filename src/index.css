@@ -190,6 +190,9 @@
   .glass-card {
     position: relative;
     z-index: 10;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
     overflow: hidden;
     background:
       linear-gradient(145deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.015)),
@@ -432,6 +435,7 @@
     display: inline-flex;
     align-items: center;
     gap: 0.45rem;
+    max-width: 100%;
     width: fit-content;
     border: 1px solid rgba(212, 175, 55, 0.24);
     border-radius: 999px;
@@ -441,15 +445,39 @@
     font-size: 0.78rem;
     font-weight: 700;
     line-height: 1;
+    overflow-wrap: anywhere;
+  }
+
+  .experience-card,
+  .experience-card-header,
+  .experience-proof-list {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .experience-card {
+    overflow: visible;
+  }
+
+  .experience-role {
+    overflow-wrap: anywhere;
   }
 
   .experience-proof-item {
     display: flex;
     align-items: flex-start;
     gap: 0.75rem;
+    width: 100%;
+    min-width: 0;
     color: #d4d4d8;
     font-size: 0.875rem;
     line-height: 1.75rem;
+  }
+
+  .experience-proof-text {
+    min-width: 0;
+    overflow-wrap: anywhere;
   }
 
   .experience-proof-dot {
@@ -462,7 +490,8 @@
   }
 
   .impact-pill {
-    flex: 0 0 auto;
+    flex: 0 1 auto;
+    max-width: 100%;
     margin-top: 0.1rem;
     border-radius: 999px;
     border: 1px solid rgba(212, 175, 55, 0.22);
@@ -472,6 +501,7 @@
     font-size: 0.68rem;
     font-weight: 700;
     line-height: 1.1;
+    overflow-wrap: anywhere;
   }
 
   .service-card {
@@ -716,6 +746,11 @@
     flex-wrap: wrap;
   }
 
+  .impact-stat {
+    line-height: 1.25;
+    white-space: normal;
+  }
+
   .project-action-button {
     flex: 1 1 100%;
     min-height: 3.15rem;
@@ -723,6 +758,11 @@
 }
 
 @media (max-width: 767px) {
+  .section-eyebrow,
+  .experience-role {
+    letter-spacing: 0.18em;
+  }
+
   .marquee-container {
     height: 40px;
     margin-top: 14px;
@@ -734,8 +774,34 @@
     animation-duration: 22s;
   }
 
+  .experience-card-header {
+    align-items: stretch;
+  }
+
+  .experience-proof-list {
+    display: grid;
+    gap: 0.875rem;
+  }
+
+  .experience-proof-item {
+    display: grid;
+    grid-template-columns: 0.5rem minmax(0, 1fr);
+    gap: 0.35rem 0.75rem;
+    line-height: 1.65rem;
+  }
+
+  .experience-proof-dot {
+    grid-column: 1;
+  }
+
+  .experience-proof-text {
+    grid-column: 2;
+  }
+
   .impact-pill {
-    margin-left: 1.25rem;
+    grid-column: 2;
+    justify-self: start;
+    margin-left: 0;
   }
 }
 
@@ -783,6 +849,11 @@
 
 /* ── xs / small phones (≤ 479px) ────────────────────────────────────── */
 @media (max-width: 479px) {
+  .container-shell {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
   .section-title {
     font-size: clamp(1.375rem, 6.2vw, 1.875rem);
   }
@@ -795,6 +866,25 @@
   .marquee-container {
     margin-top: 10px;
     margin-bottom: 18px;
+  }
+
+  .glass-card {
+    border-radius: 20px;
+  }
+
+  .experience-card {
+    padding: 1rem;
+  }
+
+  .experience-role {
+    font-size: 0.75rem;
+    line-height: 1.45rem;
+  }
+
+  .impact-stat {
+    width: 100%;
+    justify-content: flex-start;
+    font-size: 0.74rem;
   }
 
   .project-action-button {
