@@ -454,14 +454,16 @@
     width: 100%;
     max-width: 100%;
     min-width: 0;
+    box-sizing: border-box;
   }
 
   .experience-card {
-    overflow: visible;
+    overflow: hidden;
   }
 
   .experience-role {
-    overflow-wrap: anywhere;
+    overflow-wrap: break-word;
+    word-break: normal;
   }
 
   .experience-proof-item {
@@ -477,7 +479,8 @@
 
   .experience-proof-text {
     min-width: 0;
-    overflow-wrap: anywhere;
+    overflow-wrap: break-word;
+    word-break: normal;
   }
 
   .experience-proof-dot {
@@ -500,8 +503,10 @@
     background: rgba(212, 175, 55, 0.08);
     font-size: 0.68rem;
     font-weight: 700;
-    line-height: 1.1;
-    overflow-wrap: anywhere;
+    line-height: 1.2;
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-break: normal;
   }
 
   .service-card {
@@ -873,12 +878,13 @@
   }
 
   .experience-card {
-    padding: 1rem;
+    padding: 1.125rem 1rem;
   }
 
   .experience-role {
-    font-size: 0.75rem;
+    font-size: 0.725rem;
     line-height: 1.45rem;
+    letter-spacing: 0.12em;
   }
 
   .impact-stat {
@@ -897,7 +903,15 @@
 /* ── Very small phones (≤ 359px) ────────────────────────────────────── */
 @media (max-width: 359px) {
   .container-shell {
-    padding-left: 0.875rem;
-    padding-right: 0.875rem;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  .experience-card {
+    padding: 0.875rem 0.75rem;
+  }
+
+  .experience-role {
+    letter-spacing: 0.08em;
   }
 }

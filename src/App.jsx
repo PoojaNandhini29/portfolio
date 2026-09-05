@@ -8,11 +8,9 @@ import {
   Camera,
   ChevronRight,
   Code2,
-  ExternalLink,
   Globe2,
   Image,
   Mail,
-  Maximize2,
   Megaphone,
   Menu,
   Palette,
@@ -345,10 +343,10 @@ function RevealSection({ id, className = '', children }) {
     <motion.section
       id={id}
       className={cn('section-pad', className)}
-      initial={shouldReduceMotion ? false : { opacity: 0, y: 30 }}
+      initial={shouldReduceMotion ? false : { opacity: 0, y: 24 }}
       whileInView={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.16 }}
-      transition={{ duration: 0.7, ease: 'easeOut' }}
+      viewport={{ once: true, amount: 0.05 }}
+      transition={{ duration: 0.6, ease: 'easeOut' }}
     >
       {children}
     </motion.section>
@@ -482,13 +480,12 @@ function ProjectCard({ project, index }) {
           <div className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.14),transparent_28%),radial-gradient(circle_at_bottom_left,rgba(212,175,55,0.12),transparent_30%)]" />
 
           <div className="project-card-preview relative z-10 overflow-hidden rounded-[24px] border border-white/12 bg-white/[0.08] backdrop-blur-[18px]">
-            <div className="flex items-center justify-between border-b border-white/10 px-4 py-3">
+            <div className="flex items-center border-b border-white/10 px-4 py-3">
               <div className="flex items-center gap-2">
                 <span className="h-2.5 w-2.5 rounded-full bg-[#FFD700]" />
                 <span className="h-2.5 w-2.5 rounded-full bg-white/25" />
                 <span className="h-2.5 w-2.5 rounded-full bg-white/12" />
               </div>
-              <Maximize2 className="h-4 w-4 text-white/40" />
             </div>
             <div className="relative aspect-[16/9] overflow-hidden">
               <img
@@ -547,34 +544,6 @@ function ProjectCard({ project, index }) {
                   {tech}
                 </motion.span>
               ))}
-            </div>
-
-            <div className="mt-5 flex flex-wrap gap-3">
-              {project.link ? (
-                <MagneticButton
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  variant="secondary"
-                  className="project-action-button project-action-button-secondary"
-                >
-                  {project.buttonText ?? 'View Live Demo'} <Maximize2 className="h-4 w-4" />
-                </MagneticButton>
-              ) : (
-                <span className="project-action-button project-action-button-secondary cursor-not-allowed select-none opacity-75">
-                  {project.buttonText ?? 'Creative Design Portfolio'}
-                </span>
-              )}
-              {project.demo ? (
-                <MagneticButton
-                  href={project.demo}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="project-action-button project-action-button-primary"
-                >
-                  Live Link <ExternalLink className="h-4 w-4" />
-                </MagneticButton>
-              ) : null}
             </div>
           </div>
         </div>
@@ -829,26 +798,26 @@ function App() {
                   key={item.title}
                   initial={{ opacity: 0, y: 18 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.2 }}
+                  viewport={{ once: true, amount: 0.05 }}
                   transition={{ duration: 0.45, delay: index * 0.06 }}
                 >
-                  <GlassCard className="experience-card p-5 sm:p-8">
+                  <GlassCard className="experience-card p-4 sm:p-6 md:p-8">
                     <div className="experience-card-header flex flex-col gap-4 border-b border-white/10 pb-5 sm:flex-row sm:items-start sm:justify-between">
                       <div className="min-w-0">
-                        <p className="text-[11px] uppercase tracking-[0.35em] text-[#FFD700]/80">{item.period}</p>
-                        <h3 className="mt-2 text-[clamp(1.35rem,6vw,1.5rem)] font-semibold text-white">{item.title}</h3>
-                        <p className="experience-role mt-2 text-sm uppercase tracking-[0.28em] text-white/65">{item.role}</p>
+                        <p className="text-[11px] uppercase tracking-[0.25em] sm:tracking-[0.35em] text-[#FFD700]/80">{item.period}</p>
+                        <h3 className="mt-2 text-[clamp(1.25rem,5vw,1.5rem)] font-semibold text-white">{item.title}</h3>
+                        <p className="experience-role mt-2 text-xs sm:text-sm uppercase tracking-[0.16em] sm:tracking-[0.28em] text-white/65">{item.role}</p>
                       </div>
-                      <div className="impact-stat sm:text-right">
+                      <div className="impact-stat shrink-0 sm:text-right">
                         <TrendingUp className="h-4 w-4" />
                         <span>6-service delivery system</span>
                       </div>
                     </div>
 
-                    <p className="mt-5 text-base leading-8 text-zinc-300">{item.text}</p>
+                    <p className="mt-5 text-sm sm:text-base leading-7 sm:leading-8 text-zinc-300">{item.text}</p>
 
                     <div className="mt-6 min-w-0">
-                      <p className="text-xs uppercase tracking-[0.35em] text-white/65">Key Responsibilities</p>
+                      <p className="text-xs uppercase tracking-[0.25em] sm:tracking-[0.35em] text-white/65">Key Responsibilities</p>
                       <ul className="experience-proof-list mt-4 space-y-3">
                         {item.responsibilities.map((responsibility, responsibilityIndex) => (
                           <li key={responsibility} className="experience-proof-item">
