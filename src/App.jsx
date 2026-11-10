@@ -28,7 +28,7 @@ import qrCodeProject from './assets/qrcodeproject.jpg';
 import graphicDesign from './assets/graphicdesign.jpg';
 
 const navLinks = [
-  { label: 'About', href: '#about' },
+  { label: 'About', href: '#home' },
   { label: 'Experience', href: '#experience' },
   { label: 'Work', href: '#projects' },
   { label: 'Process', href: '#workflow' },
@@ -36,105 +36,42 @@ const navLinks = [
   { label: 'Contact', href: '#contact' },
 ];
 
-const expertise = [
-  {
-    title: 'Social Media Marketing',
-    icon: Share2,
-    items: ['Instagram', 'Facebook', 'Content Strategy', 'Reels & Shorts', 'Analytics'],
-  },
-  {
-    title: 'Web Development',
-    icon: Code2,
-    items: ['React', 'Shopify', 'Responsive Design', 'Landing Pages', 'E-Commerce', 'SEO-Ready Builds'],
-  },
-  {
-    title: 'App Development',
-    icon: Smartphone,
-    items: ['Android', 'React Native', 'UI/UX Flows', 'App Store Launch', 'Maintenance'],
-  },
-  {
-    title: 'Video Editing',
-    icon: Video,
-    items: ['Reels & Shorts', 'Promo Videos', 'Premiere Pro', 'After Effects', 'AI Ad Video'],
-  },
-  {
-    title: 'Graphic Design',
-    icon: Palette,
-    items: ['Branding', 'Logo Design', 'Social Creatives', 'Print & Packaging'],
-  },
-  {
-    title: 'Digital Marketing',
-    icon: TrendingUp,
-    items: ['Meta Ads', 'Google Ads', 'SEO', 'Email Campaigns', 'Performance Tracking'],
-  },
-];
-
-const aboutExpertise = expertise;
-
-const heroMarquee = ['Social media', 'Websites', 'Mobile apps', 'Video editing', 'Brand design', 'Digital ads'];
-const aboutMarquee = ['Strategy', 'Design', 'Build', 'Launch', 'Optimize', 'Grow'];
-const experienceStats = [
-  '+40% engagement focus',
-  'Mobile-first delivery',
-  'Short-form ready',
-  'ROI-led campaigns',
-  'Consistent visuals',
-  'End-to-end ownership',
-];
-
+const heroMarquee = ['React', 'Shopify', 'Responsive Design', 'Landing Pages', 'E-Commerce'];
+const aboutMarquee = ['Strategy', 'Design', 'Build', 'Launch', 'Optimize'];
 const timeline = [
   {
-    period: '2025 — 2026',
-    title: 'Freelance Digital Creative',
-    role: 'Social · Web · App · Video · Design · Marketing',
-    text: 'Working independently with brands, startups, and small businesses — offering social media marketing, web and app development, video editing, graphic design, and digital marketing as one connected service.',
+    period: 'Web Design & Development',
+    title: 'Freelance Web Designer & Developer',
+    role: 'Web Design · Web Development',
+    text: 'I design and build websites for startups and small businesses, from first wireframe to final launch.',
     responsibilities: [
-      'Managing social media accounts and content calendars to grow reach, engagement, and followers.',
-      'Designing and building responsive websites and mobile apps tailored to each brand.',
-      'Editing reels, promos, and motion graphics for social and ad campaigns.',
-      'Running paid ad campaigns across Meta and Google with a focus on results.',
-      'Creating brand identities, logos, and marketing creatives from scratch.',
-      'Being a single, reliable point of contact for strategy, design, and delivery.',
+      'Designing mobile-first layouts and user-friendly interfaces.',
+      'Building fast, responsive, SEO-ready websites.',
+      'Creating full-stack web applications with databases and user accounts.',
     ],
   },
 ];
 
+const experienceStats = ['', '', ''];
+
 const services = [
   {
-    title: 'Social Media Marketing',
+    title: 'Web Design',
     icon: Share2,
-    proof: '+40% engagement focus',
-    text: 'Content planning, posting, and community growth that turns your profiles into a consistent lead source.',
+    proof: 'Mobile-first layouts and UI design',
+    text: 'Mobile-first layouts and UI designs, reviewed with you before development begins.',
   },
   {
     title: 'Web Development',
     icon: Code2,
-    proof: 'Fast responsive launches',
-    text: 'Fast, responsive, SEO-ready websites and stores designed to convert visitors into customers.',
+    proof: 'React, Shopify, SEO-ready',
+    text: 'Responsive, SEO-ready builds in React or Shopify, including landing pages and online stores.',
   },
   {
-    title: 'App Development',
+    title: 'Web Applications',
     icon: Smartphone,
-    proof: 'Clean mobile flows',
-    text: 'Android apps with clean UI/UX, from concept and design through launch and support.',
-  },
-  {
-    title: 'Video Editing',
-    icon: Video,
-    proof: 'Scroll-stopping edits',
-    text: 'Reels, shorts, and promos edited to grab attention and hold it.',
-  },
-  {
-    title: 'Graphic Design',
-    icon: Palette,
-    proof: 'Brand-consistent assets',
-    text: 'Logos, brand identities, and social creatives with a polished, professional visual language.',
-  },
-  {
-    title: 'Digital Marketing',
-    icon: TrendingUp,
-    proof: 'Measurable ROI focus',
-    text: 'Meta and Google ad campaigns, SEO, and funnels built around measurable ROI.',
+    proof: 'Full-stack apps',
+    text: 'Full-stack apps with databases and user accounts.',
   },
 ];
 
@@ -142,9 +79,9 @@ const services = [
 const projects = [
   {
     category: 'Web Application',
-    title: 'GreenCircle – Community Gardening Platform',
+    title: 'GreenCircle: Community Gardening Platform',
     description:
-      'GreenCircle is a community-driven web application designed to connect plant lovers, gardeners, and environmentally conscious individuals. The platform enables users to share plants, exchange gardening knowledge, participate in community activities, and promote sustainable living through an intuitive and engaging digital experience.',
+      'A web app where gardeners share plants, exchange knowledge and join community activities.',
     challenge:
       'The community needed a simple way to connect plant enthusiasts and share gardening knowledge in one place.',
     solution:
@@ -159,9 +96,9 @@ const projects = [
   },
   {
     category: 'Full Stack Application',
-    title: 'Placement Portal Application',
+    title: 'Placement Portal',
     description:
-      'A full-stack placement management platform developed to simplify campus recruitment processes for students, recruiters, and administrators. The application provides centralized management of job postings, student profiles, applications, and placement activities through a clean and user-friendly interface.',
+      'A full-stack platform that centralizes job postings, applications and placement tracking for students, recruiters and admins.',
     challenge:
       'Campus recruitment needed a centralized workflow for postings, applications, and placement tracking.',
     solution:
@@ -176,9 +113,9 @@ const projects = [
   },
   {
     category: 'Automation',
-    title: 'QR Code Attendance Management System',
+    title: 'QR Attendance System',
     description:
-      'A smart attendance management system that automates attendance using QR code technology. The application enables secure QR code generation and scanning while maintaining accurate digital attendance records with a fast and responsive user interface.',
+      'A secure QR-based workflow for generating, scanning and recording attendance digitally.',
     challenge:
       'Attendance tracking needed to be fast, accurate, and secure without relying on manual entry.',
     solution:
@@ -192,21 +129,18 @@ const projects = [
     buttonText: 'View Live Demo',
   },
   {
-    category: 'Graphic Design',
-    title: 'Graphic Design & Brand Creatives',
-    description:
-      'Designed professional branding and marketing creatives for Gloco Products, including product advertisements, promotional posters, social media creatives, and digital marketing materials. The work focuses on strong visual communication, brand consistency, and engaging designs that enhance product visibility.',
-    challenge:
-      'The brand needed polished creatives that kept messaging consistent across product and social campaigns.',
-    solution:
-      'Developed brand-consistent visuals for advertisements, posters, and social media assets.',
-    metrics: ['Brand consistency', 'Marketing creatives', 'Visual communication'],
-    stack: ['Adobe Photoshop', 'Adobe Illustrator', 'Canva', 'Figma'],
+    category: '',
+    title: '',
+    description: '',
+    challenge: '',
+    solution: '',
+    metrics: [],
+    stack: [],
     image: graphicDesign,
     accent: 'from-[#D4AF37]/25 via-white/8 to-stone-950',
     link: null,
     demo: null,
-    buttonText: 'Creative Design Portfolio',
+    buttonText: '',
   },
 ];
 
@@ -355,10 +289,10 @@ function RevealSection({ id, className = '', children }) {
 
 function TechCloud() {
   const rings = [
-    { title: 'Social', icon: Share2, items: ['Instagram', 'Reels', 'Growth'] },
-    { title: 'Web & App', icon: Code2, items: ['Websites', 'Apps', 'Stores'] },
-    { title: 'Video', icon: Video, items: ['Reels', 'Promos', 'Motion'] },
-    { title: 'Design', icon: Palette, items: ['Branding', 'Logos', 'Creatives'] },
+    { title: 'Design', icon: Share2, items: ['Strategy', 'Design', 'Build'] },
+    { title: 'Development', icon: Code2, items: ['React', 'Shopify', 'Web apps'] },
+    { title: '', icon: Video, items: [] },
+    { title: '', icon: Palette, items: [] },
   ];
 
   return (
@@ -579,7 +513,7 @@ function App() {
       <CursorGlow />
 
       <a
-        href="#about"
+        href="#home"
         className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:border focus:border-[#D4AF37]/30 focus:bg-black focus:px-4 focus:py-3 focus:text-sm focus:text-white"
       >
         Skip to content
@@ -700,20 +634,26 @@ function App() {
                   className="inline-flex max-w-full items-center gap-1.5 rounded-full border border-[#D4AF37]/20 bg-[#D4AF37]/10 px-3 py-1.5 text-[9px] uppercase tracking-[0.15em] text-[#FFD700] sm:gap-2 sm:px-4 sm:py-2 sm:text-[11px] sm:tracking-[0.35em]"
                 >
                   <Star className="h-3 w-3 flex-shrink-0 sm:h-3.5 sm:w-3.5" />
-                  <span className="sm:hidden">Freelance Digital Creative</span>
-                  <span className="hidden sm:inline">Freelance · social · web · app · video · design · marketing</span>
+                  <span className="sm:hidden">Freelance Web Designer &amp; Developer</span>
+                  <span className="hidden sm:inline">Freelance Web Designer &amp; Developer</span>
                 </motion.p>
 
                 <h1 className="mt-4 text-[clamp(1.875rem,7vw,3rem)] font-semibold tracking-tight text-white sm:mt-6 sm:text-5xl lg:text-7xl">
-                  <span className="sm:hidden">Elevating Brands Through Design &amp; Innovation</span>
-                  <span className="hidden sm:inline">Elevating Brands Through Design,<br className="hidden md:block" />Strategy &amp; Innovation</span>
+                  <span className="sm:hidden">Websites That Look Sharp and Work Hard</span>
+                  <span className="hidden sm:inline">Websites That Look Sharp and Work Hard</span>
                 </h1>
 
                 <p className="mt-4 max-w-2xl text-base leading-7 text-zinc-300 sm:mt-6 sm:text-lg sm:leading-8">
-                  I&apos;m Pooja Nandhini S.M — a freelance digital creative who helps brands and businesses grow with one connected service: social media marketing, web and app development, video editing, graphic design, and digital marketing. From first idea to final launch, you get strategy, design, and delivery from a single reliable partner.
+                  I design and build fast, responsive, SEO-ready websites for startups and small businesses, from first wireframe to final launch.
+                </p>
+
+                <p className="mt-4 text-lg font-semibold text-white">One partner. Design to deployment.</p>
+                <p className="mt-3 max-w-2xl text-base leading-7 text-zinc-300">
+                  I&apos;m Pooja Nandhini S.M, a web developer and designer with 2 years of hands-on experience, having worked on several client projects across design and development. I&apos;m strong at both sides of the craft: designing clean, user-friendly interfaces and building them into fast, responsive, reliable websites. With me, you get one point of contact, one consistent look, and a finished product delivered end to end.
                 </p>
 
                 <MarqueeBand items={heroMarquee} label="Core services" />
+                <MarqueeBand items={aboutMarquee} label="Creative process" />
               </motion.div>
 
               <HeroVideo />
@@ -738,59 +678,9 @@ function App() {
           </div>
         </section>
 
-        <RevealSection id="about">
-          <div className="container-shell about-section-grid">
-            <div className="min-w-0">
-              <SectionHeading
-                eyebrow="About"
-                title="A freelance creative who covers every part of your digital presence."
-              />
-              <MarqueeBand items={aboutMarquee} label="Creative process" />
-              <GlassCard className="p-6 sm:p-8">
-                <p className="text-base leading-8 text-zinc-300">
-                  I&apos;m Pooja Nandhini S.M, a full-service freelance digital creative helping brands, startups, and small businesses show up better online. I combine six core skills — social media marketing, web development, app development, video editing, graphic design, and digital marketing — so you don&apos;t have to juggle multiple people. From building your website and app to running campaigns, editing videos, and designing your brand, I handle it all with a strategy-first, detail-obsessed approach. The result: a consistent, professional presence that actually drives growth.
-                </p>
-              </GlassCard>
-            </div>
-
-            <div className="about-pills-container">
-              {aboutExpertise.map((item, index) => {
-                const Icon = item.icon;
-                return (
-                  <motion.div
-                    key={item.title}
-                    initial={{ opacity: 0, y: 18 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.22 }}
-                    transition={{ duration: 0.45, delay: index * 0.05 }}
-                  >
-                    <GlassCard className="about-pill-card h-full p-6 transition-transform duration-300 hover:-translate-y-1">
-                      <div className="flex min-w-0 items-start gap-4">
-                        <div className="shrink-0 rounded-2xl border border-[#D4AF37]/20 bg-[#D4AF37]/10 p-3 text-[#FFD700]">
-                          <Icon className="h-5 w-5" />
-                        </div>
-                        <div className="min-w-0 flex-1">
-                          <h3 className="text-lg font-semibold text-white">{item.title}</h3>
-                          <div className="about-feature-list mt-3">
-                            {item.items.map((skill) => (
-                              <span key={skill} className="tag">
-                                {skill}
-                              </span>
-                            ))}
-                          </div>
-                        </div>
-                      </div>
-                    </GlassCard>
-                  </motion.div>
-                );
-              })}
-            </div>
-          </div>
-        </RevealSection>
-
         <RevealSection id="experience">
           <div className="container-shell">
-            <SectionHeading eyebrow="Experience" title="Freelance experience across the digital space." />
+            <SectionHeading eyebrow="Experience" title="Thoughtful design. Reliable development." />
 
             <div className="grid gap-5">
               {timeline.map((item, index) => (
@@ -810,7 +700,7 @@ function App() {
                       </div>
                       <div className="impact-stat shrink-0 sm:text-right">
                         <TrendingUp className="h-4 w-4" />
-                        <span>6-service delivery system</span>
+                        <span>Web design and development</span>
                       </div>
                     </div>
 
@@ -839,8 +729,8 @@ function App() {
           <div className="container-shell">
             <SectionHeading
               eyebrow="Work"
-              title="Selected work across social, web, apps, video, design, and marketing."
-              description="Each project shows the challenge, the approach, and the results. Add your own live links to any card once your projects are ready."
+              title="Websites and web applications I&apos;ve built"
+              description=""
             />
 
             <div className="grid items-stretch gap-5 xl:grid-cols-2">
@@ -855,17 +745,17 @@ function App() {
           <div className="container-shell">
             <SectionHeading
               eyebrow="How I Work"
-              title="A simple, transparent process from first call to final delivery."
-              description="Whether it's a campaign, a website, an app, or a full brand — every project moves through the same clear stages, so you always know what's happening."
+              title="From brief to launch in five steps"
+              description="Two revision rounds are included, and every project ends with deployment and a handover guide."
             />
 
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
               {[
-                ['Discover', 'Understand your goals, audience, and brand so the work is built around real results.'],
-                ['Plan', 'Map out the strategy, content, timeline, and deliverables before anything is created.'],
-                ['Create', 'Design and build the work  posts, sites, apps, videos, or campaigns — with quality first.'],
-                ['Refine', 'Review together, polish the details, and fine-tune until it feels exactly right.'],
-                ['Launch', 'Deliver, publish, and support — plus track performance and optimize what matters.'],
+                ['Discover', 'We start with a short brief call. I ask about your business, your audience and what you actually need — not what you think you need.'],
+                ['Plan', 'I put together a project plan with milestones and a timeline. No surprises. If your project spans more than one service, I show you how they connect.'],
+                ['Build', 'I build. You see progress through shared files and staging links. I flag questions early rather than at the end.'],
+                ['Refine', 'Two rounds of revisions are included in every project. I give you a structured feedback form so nothing gets lost in long email threads.'],
+                ['Launch', 'I handle deployment, go-live checks and a handover document so you are never left figuring it out on your own.'],
               ].map(([title, text], index) => (
                 <motion.div
                   key={title}
@@ -900,8 +790,8 @@ function App() {
           <div className="container-shell">
             <SectionHeading
               eyebrow="Services"
-              title="Everything your brand needs online  from one freelancer."
-              description="Pick a single service or let me handle your entire digital presence end to end."
+              title="Websites built to look great and perform well"
+              description=""
             />
 
             <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
@@ -939,9 +829,9 @@ function App() {
               <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
                 <div>
                   <p className="section-eyebrow">Contact</p>
-                  <h2 className="section-title">Let’s grow your brand together.</h2>
+                  <h2 className="section-title">Let's build your website.</h2>
                   <p className="section-copy">
-                    Have a project in mind or need a full digital partner? Tell me what you’re working on and I’ll get back to you with a clear plan and next steps.
+                    Tell me about your project and I'll reply with a clear plan and next steps.
                   </p>
                 </div>
 
@@ -976,7 +866,7 @@ function App() {
 
       <footer className="footer-glass relative z-10 border-t border-white/10 py-8">
         <div className="container-shell flex flex-col gap-2 text-xs text-white/55 sm:flex-row sm:items-center sm:justify-between sm:gap-3 sm:text-sm">
-          <p>© 2026 Pooja Nandhini S.M. Freelance digital creative — social, web, app, video, design &amp; marketing.</p>
+          <p>© 2026 Pooja Nandhini S.M. Freelance web designer and developer.</p>
           <p className="text-white/70">Helping brands look great and grow online.</p>
         </div>
       </footer>

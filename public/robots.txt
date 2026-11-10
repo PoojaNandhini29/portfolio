@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://poojanandhini.vercel.app/sitemap.xml
