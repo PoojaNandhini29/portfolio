@@ -7,16 +7,16 @@
 export const PROFILE = {
   name: 'Pooja Nandhini S.M',
   role: 'Freelance Web Designer & Developer',
-  tagline: 'Websites That Look Sharp and Work Hard',
-  heroHeadline: 'Websites That Look Sharp and Work Hard',
+  tagline: 'Clean websites for small businesses and startups that win customers.',
+  heroHeadline: 'Clean websites for small businesses and startups that win customers.',
   heroSubline:
-    'I design and build fast, responsive, SEO-ready websites for startups and small businesses, from first wireframe to final launch.',
+    'I handle both design and code, turning your ideas into fast, search-ready sites that work smoothly on every screen.',
   heroCta: 'Start a project',
   heroCtaSecondary: 'See my work',
   email: 'pixelperfectdesignsindia@gmail.com',
-  whatsapp: 'https://wa.me/91XXXXXXXXXX', // Replace with real number
-  instagram: 'https://instagram.com/',     // Replace
-  linkedin: 'https://linkedin.com/in/',    // Replace
+  whatsapp: 'https://wa.me/917358968480',
+  instagram: 'https://www.instagram.com/elevate_by_pooja?utm_source=qr&igsh=MTV5aHczZHNoMjNxOA==',
+  linkedin: 'https://www.linkedin.com/in/pooja-nandhini-97bab1351',
   github: 'https://github.com/',           // Replace
   location: 'India — available worldwide, remote',
   available: true,
@@ -29,12 +29,12 @@ export const PROJECTS = [
     title: 'GreenCircle: Community Gardening Platform',
     category: 'Web Development',
     tags: ['React.js', 'Firebase', 'JavaScript'],
-    tagline: 'A web app where gardeners share plants, exchange knowledge and join community activities.',
+    tagline: 'A community web app where local plant lovers list plant cuttings, share knowledge, and join meetups.',
     coverImage: '/greencircle.jpg',
     accentColor: '#3d6b43',
     // Case study fields
     problem:
-      'Plant lovers had no dedicated space to share plants, swap growing tips, or discover local community activities. General social platforms felt impersonal and unfocused.',
+      'Local gardeners had no single place to exchange plant cuttings or share regional care advice without cluttered feeds.',
     myRole:
       'Full-stack developer — designed the data architecture, built all screens in React and Firebase, and handled deployment.',
     process: [
@@ -47,71 +47,31 @@ export const PROJECTS = [
       'A working web application where registered users can share plants, post gardening knowledge and join community activities — built and deployed end-to-end.',
     stack: ['React.js', 'Firebase (Firestore + Auth)', 'JavaScript', 'HTML', 'CSS'],
     github: 'https://github.com/', // Replace with real link
-    demo: null,
+    demo: 'https://green-a050a.web.app/',
   },
   {
-    id: 'placement-portal',
-    title: 'Placement Portal',
+    id: 'food-store',
+    title: 'Food Munch: Restaurant & Online Food Store',
     category: 'Web Development',
-    tags: ['Flask', 'Python', 'SQLite'],
-    tagline: 'A full-stack platform that centralizes job postings, applications and placement tracking for students, recruiters and admins.',
-    coverImage: '/placement-portal.jpg',
+    tags: ['HTML5', 'Tailwind CSS', 'JavaScript', 'Firebase'],
+    tagline: 'A responsive food ordering web app featuring categorized menus, special promo deals, and delivery workflows.',
+    coverImage: '/foodstore.jpg',
     accentColor: '#c8a020',
     problem:
-      'Campus recruitment ran across spreadsheets, email chains and phone calls. Students missed postings, recruiters lost track of applications, and administrators had no way to audit the process.',
+      'The restaurant needed an appetizing digital storefront to showcase fresh menus, highlight offers, and simplify online ordering.',
     myRole:
-      'Full-stack developer — designed the relational schema, built the Flask backend, and created separate dashboards for three user roles.',
+      'Web developer — built the responsive UI, categorized menus, and deployed to Firebase.',
     process: [
-      'Mapped three distinct user journeys: students browsing and applying, recruiters posting and shortlisting, admins managing the whole pipeline.',
-      'Designed a single SQLite schema that could power all three views without duplicating data.',
-      'Built role-based authentication so each user type only sees what is relevant to them.',
-      'Added a dashboard with filterable applicant lists, status badges and a basic interview scheduler.',
+      'Designed responsive menu layouts for starters, mains, and beverages.',
+      'Built high-conversion promotional offer cards and customer proof sections.',
+      'Optimized asset loading and mobile-first navigation across all screen sizes.',
+      'Deployed on Firebase Hosting with fast load times.',
     ],
     result:
-      'A self-contained recruitment system: students apply online, recruiters manage candidates from posting to offer, and admins have a single view of the entire pipeline.',
-    stack: ['Flask', 'Python', 'SQLite', 'Bootstrap', 'JavaScript', 'HTML', 'CSS'],
+      'A deployed, mobile-first food ordering website that showcases menus and promotional campaigns.',
+    stack: ['HTML5', 'Tailwind CSS', 'JavaScript', 'Firebase'],
     github: 'https://github.com/', // Replace with real link
-    demo: null,
-  },
-  {
-    id: 'qr-attendance',
-    title: 'QR Attendance System',
-    category: 'Web Development',
-    tags: ['React.js', 'Firebase'],
-    tagline: 'A secure QR-based workflow for generating, scanning and recording attendance digitally.',
-    coverImage: '/qr-attendance.jpg',
-    accentColor: '#2a7fa0',
-    problem:
-      'Manual roll call wasted class time and was easy to game. Faculty needed a faster, tamper-resistant way to record attendance and produce reports.',
-    myRole:
-      'Full-stack developer — built the QR generation logic, real-time scan validation and the faculty reporting dashboard.',
-    process: [
-      'Designed time-bound QR codes that expire after each class window, making advance screenshots useless.',
-      'Used Firebase real-time database so attendance updates appear on the faculty screen the moment a student scans.',
-      'Built a faculty dashboard showing a live attendance list per session with export-ready reports.',
-      'Added an admin view to audit historical data by date, class or student.',
-    ],
-    result:
-      'A deployed system that removes paper registers entirely, prevents proxy attendance through time-expiry logic, and generates exportable attendance reports on demand.',
-    stack: ['React.js', 'Firebase (Realtime DB + Auth)', 'JavaScript', 'HTML', 'CSS'],
-    github: 'https://github.com/', // Replace with real link
-    demo: null,
-  },
-  {
-    id: 'gloco',
-    title: '',
-    category: '',
-    tags: [],
-    tagline: '',
-    coverImage: '/gloco.jpg',
-    accentColor: '#b5673a',
-    problem: '',
-    myRole: '',
-    process: [],
-    result: '',
-    stack: [],
-    github: null,
-    demo: null,
+    demo: 'https://food-store-5058e.web.app/',
   },
 ]
 
@@ -119,21 +79,21 @@ export const PROJECTS = [
 export const SERVICES = [
   {
     id: 'web-design', icon: 'pen-tool', title: 'Web Design', group: 'Design',
-    forWho: 'Businesses looking for clear, user-friendly website designs.',
-    included: ['Mobile-first layouts', 'UI designs', 'Reviewed before development'],
-    deliverable: 'A reviewed website design ready for development.',
+    forWho: 'Small businesses and startups needing intuitive, mobile-ready site designs.',
+    included: ['Custom wireframes', 'Mobile-first UI design', 'Figma prototypes'],
+    deliverable: 'Figma mockups & design system',
   },
   {
     id: 'web-development', icon: 'monitor', title: 'Web Development', group: 'Build',
-    forWho: 'Businesses that need responsive websites and online stores.',
-    included: ['React or Shopify builds', 'SEO-ready websites', 'Landing pages and online stores'],
-    deliverable: 'A responsive, SEO-ready website.',
+    forWho: 'Businesses that need fast, responsive websites and landing pages.',
+    included: ['React or Shopify builds', 'On-page SEO optimization', 'Live deployment'],
+    deliverable: 'Production build & domain launch',
   },
   {
     id: 'web-applications', icon: 'monitor', title: 'Web Applications', group: 'Build',
-    forWho: 'Businesses that need a full-stack web application.',
-    included: ['Full-stack apps', 'Database integration', 'User accounts'],
-    deliverable: 'A full-stack app with a database and user accounts.',
+    forWho: 'Founders who need custom tools with user logins and database workflows.',
+    included: ['Full-stack apps', 'Database integration', 'Role-based dashboards'],
+    deliverable: 'Auth, database & admin portal',
   },
   {
     id: 'social-media',
@@ -197,36 +157,36 @@ export const PROCESS = [
     step: '01',
     title: 'Discover',
     description:
-      'We start with a short brief call. I ask about your business, your audience and what you actually need — not what you think you need. You leave knowing exactly what I will deliver and when.',
-    clientGets: 'A written project brief and a clear scope of work.',
+      'We begin with a brief call about your goals, audience, and essential features. You receive a written project brief and an agreed scope of work.',
+    clientGets: 'A written project brief and an agreed scope of work.',
   },
   {
     step: '02',
     title: 'Plan',
     description:
-      'I put together a project plan with milestones and a timeline. No surprises. If your project spans more than one service, I show you how they connect so everything ships together.',
-    clientGets: 'A project plan with milestone dates and review checkpoints.',
+      'I map out site architecture, key pages, and target delivery dates. You receive a clear project schedule with milestones, review checkpoints, and clear next steps.',
+    clientGets: 'A project schedule with milestone dates and review checkpoints.',
   },
   {
     step: '03',
     title: 'Build',
     description:
-      'I build. You see progress in real time through shared files and staging links. I work in focused sprints and flag any questions early rather than at the end.',
-    clientGets: 'A staging link or shared design file to review at each milestone.',
+      'I design layouts and develop clean code. You receive private preview links and Figma boards to track progress in real time.',
+    clientGets: 'Private preview links and Figma design boards.',
   },
   {
     step: '04',
     title: 'Refine',
     description:
-      'Two rounds of revisions are included in every project. I give you a clear feedback form so the process is fast and nothing gets lost in long email threads.',
-    clientGets: 'Two structured revision rounds with a feedback form.',
+      'We review the staging build together. You receive two structured revision rounds and a simple feedback sheet so every tweak gets handled quickly.',
+    clientGets: 'Two structured revision rounds and a feedback tracking sheet.',
   },
   {
     step: '05',
     title: 'Launch',
     description:
-      'I handle deployment, go-live checks and a handover guide for your new website.',
-    clientGets: 'Deployment and a handover guide.',
+      'I run final domain, speed, and mobile checks before publishing. You receive a live website, all source files, and a simple handover guide.',
+    clientGets: 'Live site deployment, source files, and a handover guide.',
   },
 ]
 
@@ -253,11 +213,11 @@ export const WHO_I_WORK_WITH = [
 // ─── About ────────────────────────────────────────────────────
 export const ABOUT = {
   intro:
-    "I'm Pooja Nandhini S.M, a web developer and designer with 2 years of hands-on experience, having worked on several client projects across design and development.",
+    "I'm Pooja Nandhini S.M, with 2 years of hands-on experience delivering client projects. Instead of juggling a separate designer and programmer, you work directly with me.",
   body:
-    'I’m strong at both sides of the craft: designing clean, user-friendly interfaces and building them into fast, responsive, reliable websites. With me, you get one point of contact, one consistent look, and a finished product delivered end to end.',
+    'I create clean layouts and build them cleanly in React and Shopify, giving you direct communication, one cohesive style, and a site delivered on schedule.',
   howIWork:
-    'Two revision rounds are included, and every project ends with deployment and a handover guide.',
+    'Two revision rounds are included, and every project ends with live deployment and a handover guide.',
   tools: [
     'React', 'Shopify', 'Responsive Design', 'Landing Pages', 'E-Commerce',
   ],

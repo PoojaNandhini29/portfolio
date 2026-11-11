@@ -23,31 +23,27 @@ import {
   X,
 } from 'lucide-react';
 import greenCircle from './assets/greencircle.jpg';
-import placementPortal from './assets/placementportal.jpg';
-import qrCodeProject from './assets/qrcodeproject.jpg';
-import graphicDesign from './assets/graphicdesign.jpg';
+import foodStore from './assets/foodstore.jpg';
 
 const navLinks = [
-  { label: 'About', href: '#home' },
-  { label: 'Experience', href: '#experience' },
+  { label: 'Home', href: '#home' },
+  { label: 'About', href: '#about' },
   { label: 'Work', href: '#projects' },
   { label: 'Process', href: '#workflow' },
   { label: 'Services', href: '#services' },
   { label: 'Contact', href: '#contact' },
 ];
 
-const heroMarquee = ['React', 'Shopify', 'Responsive Design', 'Landing Pages', 'E-Commerce'];
-const aboutMarquee = ['Strategy', 'Design', 'Build', 'Launch', 'Optimize'];
 const timeline = [
   {
     period: 'Web Design & Development',
     title: 'Freelance Web Designer & Developer',
     role: 'Web Design · Web Development',
-    text: 'I design and build websites for startups and small businesses, from first wireframe to final launch.',
+    text: "I'm Pooja Nandhini S.M, with 2 years of hands-on experience delivering client projects. Instead of juggling a separate designer and programmer, you work directly with me. I create clean layouts and build them cleanly in React and Shopify, giving you direct communication, one cohesive style, and a site delivered on schedule.",
     responsibilities: [
-      'Designing mobile-first layouts and user-friendly interfaces.',
-      'Building fast, responsive, SEO-ready websites.',
-      'Creating full-stack web applications with databases and user accounts.',
+      'Designing clean, responsive layouts tested across all devices.',
+      'Building fast, search-ready websites in modern frameworks.',
+      'Developing full-stack web applications with secure databases and authentication.',
     ],
   },
 ];
@@ -58,20 +54,20 @@ const services = [
   {
     title: 'Web Design',
     icon: Share2,
-    proof: 'Mobile-first layouts and UI design',
-    text: 'Mobile-first layouts and UI designs, reviewed with you before development begins.',
+    proof: 'Figma mockups & design system',
+    text: 'Custom page wireframes, mobile-first interface layouts, and interactive Figma mockups ready for development.',
   },
   {
     title: 'Web Development',
     icon: Code2,
-    proof: 'React, Shopify, SEO-ready',
-    text: 'Responsive, SEO-ready builds in React or Shopify, including landing pages and online stores.',
+    proof: 'Production build & domain launch',
+    text: 'Fast, mobile-ready websites built in React or Shopify, configured with clean code and search optimization.',
   },
   {
     title: 'Web Applications',
     icon: Smartphone,
-    proof: 'Full-stack apps',
-    text: 'Full-stack apps with databases and user accounts.',
+    proof: 'Auth, database & admin portal',
+    text: 'Full-stack web applications with secure databases, user authentication, and custom administrative dashboards.',
   },
 ];
 
@@ -81,12 +77,12 @@ const projects = [
     category: 'Web Application',
     title: 'GreenCircle: Community Gardening Platform',
     description:
-      'A web app where gardeners share plants, exchange knowledge and join community activities.',
+      'A community web app where local plant lovers list plant cuttings, share knowledge, and join meetups.',
     challenge:
-      'The community needed a simple way to connect plant enthusiasts and share gardening knowledge in one place.',
+      'Local gardeners had no single place to exchange plant cuttings or share regional care advice without cluttered feeds.',
     solution:
-      'Built an intuitive platform for sharing plants, exchanging knowledge, and participating in community activities.',
-    metrics: ['Community-driven', 'Sustainable living', 'Engaging UX'],
+      'Built an end-to-end React and Firebase platform featuring real-time listings, community comments, and activity RSVPs.',
+    metrics: ['Live Plant Exchange', 'Real-Time Feeds', 'Firebase Deployment'],
     stack: ['React.js', 'Firebase', 'JavaScript', 'HTML', 'CSS'],
     image: greenCircle,
     accent: 'from-fuchsia-400/20 via-white/8 to-zinc-950',
@@ -95,52 +91,21 @@ const projects = [
     buttonText: 'View Live Demo',
   },
   {
-    category: 'Full Stack Application',
-    title: 'Placement Portal',
+    category: 'Web Application',
+    title: 'Food Munch: Restaurant & Online Food Store',
     description:
-      'A full-stack platform that centralizes job postings, applications and placement tracking for students, recruiters and admins.',
+      'A responsive food ordering web app featuring categorized menus, special promo deals, and delivery workflows.',
     challenge:
-      'Campus recruitment needed a centralized workflow for postings, applications, and placement tracking.',
+      'The restaurant needed an appetizing digital storefront to showcase fresh menus, highlight offers, and simplify online ordering.',
     solution:
-      'Delivered a clean management interface for students, recruiters, and administrators to coordinate placement tasks.',
-    metrics: ['Centralized workflow', 'Campus recruitment', 'User-friendly'],
-    stack: ['Flask', 'Python', 'SQLite', 'HTML', 'CSS', 'JavaScript', 'Bootstrap'],
-    image: placementPortal,
+      'Built a fast, mobile-friendly web store with categorized menu cards, promo code banners, and responsive navigation on Firebase.',
+    metrics: ['Curated Food Menus', 'Mobile-Responsive', 'Firebase Hosted'],
+    stack: ['HTML5', 'Tailwind CSS', 'JavaScript', 'Firebase'],
+    image: foodStore,
     accent: 'from-amber-400/25 via-white/8 to-zinc-950',
-    link: 'https://placement-portal-application-six.vercel.app/',
-    demo: 'https://placement-portal-application-six.vercel.app/',
+    link: 'https://food-store-5058e.web.app/',
+    demo: 'https://food-store-5058e.web.app/',
     buttonText: 'View Live Demo',
-  },
-  {
-    category: 'Automation',
-    title: 'QR Attendance System',
-    description:
-      'A secure QR-based workflow for generating, scanning and recording attendance digitally.',
-    challenge:
-      'Attendance tracking needed to be fast, accurate, and secure without relying on manual entry.',
-    solution:
-      'Created a QR-based workflow for generating, scanning, and recording attendance digitally.',
-    metrics: ['Secure scanning', 'Digital attendance', 'Fast interface'],
-    stack: ['React.js', 'Firebase', 'JavaScript', 'HTML', 'CSS'],
-    image: qrCodeProject,
-    accent: 'from-cyan-400/22 via-white/8 to-zinc-950',
-    link: 'https://qr-code-eosin-rho.vercel.app/login',
-    demo: 'https://qr-code-eosin-rho.vercel.app/login',
-    buttonText: 'View Live Demo',
-  },
-  {
-    category: '',
-    title: '',
-    description: '',
-    challenge: '',
-    solution: '',
-    metrics: [],
-    stack: [],
-    image: graphicDesign,
-    accent: 'from-[#D4AF37]/25 via-white/8 to-stone-950',
-    link: null,
-    demo: null,
-    buttonText: '',
   },
 ];
 
@@ -422,15 +387,27 @@ function ProjectCard({ project, index }) {
               </div>
             </div>
             <div className="relative aspect-[16/9] overflow-hidden">
-              <img
-                src={project.image}
-                alt={`${project.title} preview`}
-                className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
-                loading="lazy"
-                decoding="async"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/10 to-transparent opacity-70" />
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(212,175,55,0.25),transparent_20%)]" />
+              {project.link ? (
+                <a href={project.link} target="_blank" rel="noopener noreferrer" className="block h-full w-full">
+                  <img
+                    src={project.image}
+                    alt={`${project.title} preview`}
+                    className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </a>
+              ) : (
+                <img
+                  src={project.image}
+                  alt={`${project.title} preview`}
+                  className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                  loading="lazy"
+                  decoding="async"
+                />
+              )}
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black via-black/10 to-transparent opacity-70" />
+              <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(212,175,55,0.25),transparent_20%)]" />
             </div>
           </div>
 
@@ -467,18 +444,18 @@ function ProjectCard({ project, index }) {
           </div>
           </div>
 
-          <div className="project-card-footer relative z-10">
-            <div className="flex flex-wrap gap-2">
-              {project.stack.map((tech) => (
-                <motion.span
-                  key={tech}
-                  whileHover={{ y: -2 }}
-                  className="tag shadow-[0_8px_24px_rgba(0,0,0,0.2)]"
-                >
-                  {tech}
-                </motion.span>
-              ))}
-            </div>
+          <div className="project-card-footer relative z-10 flex flex-wrap items-center justify-end gap-3">
+            {project.link ? (
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 rounded-full border border-[#D4AF37]/30 bg-[#D4AF37]/10 px-4 py-2 text-xs font-semibold text-[#FFD700] transition hover:bg-[#D4AF37]/20 hover:scale-105"
+              >
+                <span>{project.buttonText || 'View Live Demo'}</span>
+                <ArrowUpRight className="h-3.5 w-3.5" />
+              </a>
+            ) : null}
           </div>
         </div>
       </GlassCard>
@@ -531,7 +508,7 @@ function App() {
               PN
             </div>
             <div className="min-w-0 leading-tight">
-              <p className="truncate text-[10px] uppercase tracking-[0.2em] text-white/65 sm:text-[11px] sm:tracking-[0.35em]">Freelance Creative</p>
+              <p className="truncate text-[10px] uppercase tracking-[0.2em] text-white/65 sm:text-[11px] sm:tracking-[0.35em]">Freelance Web Developer</p>
               <p className="truncate text-xs font-medium text-white sm:text-sm">Pooja Nandhini S.M</p>
             </div>
           </a>
@@ -639,21 +616,18 @@ function App() {
                 </motion.p>
 
                 <h1 className="mt-4 text-[clamp(1.875rem,7vw,3rem)] font-semibold tracking-tight text-white sm:mt-6 sm:text-5xl lg:text-7xl">
-                  <span className="sm:hidden">Websites That Look Sharp and Work Hard</span>
-                  <span className="hidden sm:inline">Websites That Look Sharp and Work Hard</span>
+                  <span className="sm:hidden">Clean websites for small businesses and startups that win customers.</span>
+                  <span className="hidden sm:inline">Clean websites for small businesses and startups that win customers.</span>
                 </h1>
 
                 <p className="mt-4 max-w-2xl text-base leading-7 text-zinc-300 sm:mt-6 sm:text-lg sm:leading-8">
-                  I design and build fast, responsive, SEO-ready websites for startups and small businesses, from first wireframe to final launch.
+                  I handle both design and code, turning your ideas into fast, search-ready sites that work smoothly on every screen.
                 </p>
 
-                <p className="mt-4 text-lg font-semibold text-white">One partner. Design to deployment.</p>
+                <p className="mt-4 text-lg font-semibold text-white">One direct partner from design to launch.</p>
                 <p className="mt-3 max-w-2xl text-base leading-7 text-zinc-300">
-                  I&apos;m Pooja Nandhini S.M, a web developer and designer with 2 years of hands-on experience, having worked on several client projects across design and development. I&apos;m strong at both sides of the craft: designing clean, user-friendly interfaces and building them into fast, responsive, reliable websites. With me, you get one point of contact, one consistent look, and a finished product delivered end to end.
+                  I build custom web applications, recruitment portals, and landing pages for early-stage startups and small businesses.
                 </p>
-
-                <MarqueeBand items={heroMarquee} label="Core services" />
-                <MarqueeBand items={aboutMarquee} label="Creative process" />
               </motion.div>
 
               <HeroVideo />
@@ -678,9 +652,9 @@ function App() {
           </div>
         </section>
 
-        <RevealSection id="experience">
+        <RevealSection id="about">
           <div className="container-shell">
-            <SectionHeading eyebrow="Experience" title="Thoughtful design. Reliable development." />
+            <SectionHeading eyebrow="About" title="Thoughtful design. Reliable development." />
 
             <div className="grid gap-5">
               {timeline.map((item, index) => (
@@ -751,11 +725,11 @@ function App() {
 
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
               {[
-                ['Discover', 'We start with a short brief call. I ask about your business, your audience and what you actually need — not what you think you need.'],
-                ['Plan', 'I put together a project plan with milestones and a timeline. No surprises. If your project spans more than one service, I show you how they connect.'],
-                ['Build', 'I build. You see progress through shared files and staging links. I flag questions early rather than at the end.'],
-                ['Refine', 'Two rounds of revisions are included in every project. I give you a structured feedback form so nothing gets lost in long email threads.'],
-                ['Launch', 'I handle deployment, go-live checks and a handover document so you are never left figuring it out on your own.'],
+                ['Discover', 'We begin with a brief call about your goals, audience, and essential features. You receive a written project brief and an agreed scope of work.'],
+                ['Plan', 'I map out site architecture, key pages, and target delivery dates. You receive a clear project schedule with milestones, review checkpoints, and clear next steps.'],
+                ['Build', 'I design layouts and develop clean code. You receive private preview links and Figma boards to track progress in real time.'],
+                ['Refine', 'We review the staging build together. You receive two structured revision rounds and a simple feedback sheet so every tweak gets handled quickly.'],
+                ['Launch', 'I run final domain, speed, and mobile checks before publishing. You receive a live website, all source files, and a simple handover guide.'],
               ].map(([title, text], index) => (
                 <motion.div
                   key={title}
@@ -829,9 +803,9 @@ function App() {
               <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
                 <div>
                   <p className="section-eyebrow">Contact</p>
-                  <h2 className="section-title">Let's build your website.</h2>
+                  <h2 className="section-title">Have a project in mind?</h2>
                   <p className="section-copy">
-                    Tell me about your project and I'll reply with a clear plan and next steps.
+                    Send a message with your project idea, and I&apos;ll reply with clear next steps.
                   </p>
                 </div>
 
@@ -866,8 +840,8 @@ function App() {
 
       <footer className="footer-glass relative z-10 border-t border-white/10 py-8">
         <div className="container-shell flex flex-col gap-2 text-xs text-white/55 sm:flex-row sm:items-center sm:justify-between sm:gap-3 sm:text-sm">
-          <p>© 2026 Pooja Nandhini S.M. Freelance web designer and developer.</p>
-          <p className="text-white/70">Helping brands look great and grow online.</p>
+          <p>© 2026 Pooja Nandhini S.M. Freelance web designer &amp; developer.</p>
+          <p className="text-white/70">Helping small businesses and startups grow online.</p>
         </div>
       </footer>
     </div>
